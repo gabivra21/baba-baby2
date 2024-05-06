@@ -1,0 +1,15 @@
+{
+    "description": "Baba-Baby Sprint 2",
+    "authors": [
+        {
+            "name": "Nicole, Felipe, Gabriela, Ana, José"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sts\\":"app/sts",
+            "Core\\":"core"
+        }
+    },
+    "require": {}
+}
