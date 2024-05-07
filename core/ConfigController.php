@@ -29,6 +29,12 @@ class ConfigController
             $this->urlController = "home";
             $this->urlMetodo = "index";
         }
-        echo "Controller: {$this->urlController} - Metodo: {$this->urlMetodo}";
+        //echo "Controller: {$this->urlController} - Metodo: {$this->urlMetodo}<br>";
+    }
+    public function loadPage(){
+        //echo "Carregar a pg/controller<br>";
+        $classLoad = "\\Sts\Controllers\\" . $this->urlController;
+        $classPage = new $classLoad();
+        $classPage->index();
     }
 }
