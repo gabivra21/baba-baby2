@@ -8,7 +8,8 @@ class ConfigController
     private array $urlArray;
     private string $urlController;
     private string $urlMetodo;
-
+    
+    #nao enviou nada pela url acessa a home
     public function __construct()
     {
         if(!empty(filter_input(INPUT_GET, 'url', FILTER_DEFAULT))){
