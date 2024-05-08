@@ -1,11 +1,17 @@
+# faz a reescrita da url
 RewriteEngine On 
 
-RewriteCond %{REQUEST_FILENAME} !-d
+# define uma condição para uma regra / REQUEST_FILENAME: é o caminho do diretório. informa que será criada uma codição a ser aplicada ao nome do diretório
+# !- negação; -d- verifica a existência de um diretório físico
+RewriteCond %{REQUEST_FILENAME} !-d 
+# -f- verifica a existência de um artigo físico
 RewriteCond %{REQUEST_FILENAME} !-f
+# verifica a existência de um link simbólico
 RewriteCond %{REQUEST_FILENAME} !-l
+
 
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 
 # index.php?url=site/index$origem=insta&qual
 
-#redireciona o usuário para o index
+# redireciona o usuário para o index
