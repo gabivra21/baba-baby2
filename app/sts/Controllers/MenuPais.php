@@ -3,7 +3,7 @@
 namespace Sts\Controllers;
 
 //aqui vai a pagina inicial depois do login dos PAIS mostrando a listagem de babas!!
-class HomePais{
+class MenuPais{
 
     private array $dados;
 
@@ -13,7 +13,7 @@ class HomePais{
         $listarBaba = new \Sts\Models\StsListarBaba();
         $this->dados['babas'] = $listarBaba->listar();
         //var_dump($this->dados);
-        $carregarView = new \Core\ConfigView("sts/Views/homepais/listarBaba", $this->dados);
+        $carregarView = new \Core\ConfigView("sts/Views/menupais/listarBaba", $this->dados);
         $carregarView->renderizar();
     }
 }
