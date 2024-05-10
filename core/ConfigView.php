@@ -29,4 +29,8 @@ class ConfigView{
             echo "Erro CV: Por favor, tente novamente. Ou entre em contato com o administrador.";
         }
     }
+
+    public function loadView(){
+        
+    }
 }
