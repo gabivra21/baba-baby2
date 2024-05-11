@@ -4,6 +4,8 @@ namespace Sts\Controllers;
 
 class Contato{
     public function index(){
-        echo "controller/pg contato<br>";
+        $this->data = [];
+        $loadView = new \Core\ConfigView("sts/Views//", $this->data);
+        echo "pg contato view";
     }
 }

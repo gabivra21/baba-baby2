@@ -13,7 +13,7 @@ class MenuPais{
         $listarBaba = new \Sts\Models\StsListarBaba();
         $this->dados['babas'] = $listarBaba->listar();
         //var_dump($this->dados);
-        $carregarView = new \Core\ConfigView("sts/Views/menupais/listarBaba", $this->dados);
-        $carregarView->renderizar();
+        $loadView = new \Core\ConfigView("sts/Views/menupais/listarBaba", $this->dados);
+        echo "pg menupais view";
     }
 }
