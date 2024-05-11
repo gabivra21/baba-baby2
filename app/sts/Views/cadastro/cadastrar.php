@@ -118,7 +118,7 @@ echo "<h1>Cadastre-se</h1>";
         <?php
         
             //OBTEM DIAS DA SEMANA
-            /*$querySQL = "SELECT * FROM dia";
+           /* $querySQL = "SELECT * FROM dia";
             $queryPreparada = $pdo->prepare($querySQL);
             $queryPreparada->execute();
             $queryPreparada->setFetchMode(PDO::FETCH_ASSOC);
@@ -150,6 +150,7 @@ echo "<h1>Cadastre-se</h1>";
             
         </label>*/
         ?>
+        
         <input name= "botao" type="submit" id="button" value="CADASTRAR">
 
 
