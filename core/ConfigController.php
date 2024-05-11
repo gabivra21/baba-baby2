@@ -7,7 +7,10 @@ class ConfigController
     private string $url;
     private array $urlArray;
     private string $urlController;
-    private string $urlMetodo;
+    //private string $urlMetodo;
+    //private string $urlParameter;
+    private string $urlSlugController;
+    private array $format;
     
     #nao enviou nada pela url acessa a home
     public function __construct()
@@ -19,19 +22,37 @@ class ConfigController
             //var_dump($this->urlArray);
             
 
-            if((isset($this->urlArray[0])) and (isset($this->urlArray[1]))){
-                $this->urlController = $this->urlArray[0];
-            $this->urlMetodo = $this->urlArray[1];
+            if((isset($this->urlArray[0]))){
+                $this->urlController = $this->slugController($this->urlArray[0]);
+                //$this->urlMetodo = $this->urlArray[1];
             }else{
-                $this->urlController = "erro";
-                $this->urlMetodo = "index";
+                $this->urlController = $this->slugController("Home");
             }
         }else{
-            $this->urlController = "home";
-            $this->urlMetodo = "index";
+            $this->urlController = $this->slugController("Home");
         }
         //echo "Controller: {$this->urlController} - Metodo: {$this->urlMetodo}<br>";
     }
+
+    private function clearUrl(){
+        //eliminar as tag
+        $this->url = strip_tags($this->url);
+        //eliminar espacos em branco
+        trim($this->url);
+        //eliminar a /(barra) final
+        $this->url = rtrim($this->url, "/");
+        $this->url = strtr(utf8_decode($this->url));
+    }
+
+    private function slugController($slugController){
+        //converter para minusculo
+        $this->urlSlugController = strtolower($slugController);
+        //converter - para espaco em branco
+        $this->urlSlugController = str_replace("-", " ", $this->urlSlugController);
+        
+        return $this->urlSlugController;
+    }
+
     public function loadPage(){
         //echo "Carregar a pg/controller<br>";
         $classLoad = "\\Sts\Controllers\\" . $this->urlController;
