@@ -8,8 +8,8 @@
 .box_login{
     width: 500px;
     height: 500px;
-    background-color: #f8eded98;
     padding-top: 2px;
+    background-color: whitesmoke;
 }
 
 h1{
@@ -37,7 +37,6 @@ form input{
     border: 0;
     margin-bottom: 5px;
 }
-
 .btn_login{
     background: darksalmon;
     color: #fff;
@@ -55,6 +54,8 @@ form input{
     display: flex;
     justify-content: center;
     margin-bottom: 5px;
+    font-size: smaller;
+    font-weight: 700;
 }
 
 p{
