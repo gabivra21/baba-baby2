@@ -1,10 +1,10 @@
 <?php
 
-$db_name = 'bbby';
+$db_name = 'babababy_';
 $db_host = 'localhost';
 $db_port = '3306';
 $db_user = 'root';
-$db_password = '';
+$db_password = 'PUC@1234';
 
 try
 {
