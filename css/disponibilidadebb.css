@@ -1,0 +1,124 @@
+.header {
+    text-align: center;
+}
+
+.imagemhead {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    color: #333;
+}
+
+table {
+    border-radius: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+table, th, td {
+    border-bottom: 1px solid #9671c2;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f0ac95c5;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #ebf09fa1;
+}
+
+tr:hover {background-color: rgba(239, 210, 200, 0.59);}
+
+
+/* Botoes */
+
+a.botao {
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+
+}
+
+a.adicionar {
+  position: absolute;
+  top: 30px;
+  right: 27px;
+  background-color: #e9967a;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+a.adicionar:hover {
+    background-color: #46c4bb;
+
+}
+
+a.remover {
+  position: absolute;
+  top: 80px;
+  right: 27px;
+  background-color: #f47950;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+
+}
+
+a.remover:hover {
+    background-color: #9f3939;
+
+}
+a.voltar {
+    position: absolute;
+    top: 55px;
+    left: 29px;
+    background-color: #ac9e9d;
+    color: white;
+    padding: 0px 20px;
+    text-align: center;
+    line-height: 35px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+
+}
+
+a.voltar:hover {
+    background-color: rgb(57, 42, 42);
+    color: rgb(244, 244, 244);
+}
