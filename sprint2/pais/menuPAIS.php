@@ -1,12 +1,10 @@
 <?php
 require 'configu.php';
 
-$delete = filter_input(INPUT_GET, 'delete');
-/*select BABÁ*/
 $querySQL = "SELECT 
-DISTINCT b.idBaba, u.nome as nomeBaba, u.cidade, 
+DISTINCT b.idBaba, u.nome as nomeBaba, u.cidade as cidade, 
 b.tempoExp, b.ref, b.sobre, f.nome as fxEtaria, 
-b.valor
+b.valor as valor
 FROM baba as b
 LEFT JOIN usuario as u ON b.pk_idUsuario = u.idUsuario 
 LEFT JOIN fxetaria as f ON b.fk_idFxEtaria = f.idFxEtaria;
@@ -15,6 +13,9 @@ $queryPreparada = $pdo->prepare($querySQL);
 $queryPreparada->execute();
 $queryPreparada->setFetchMode(PDO::FETCH_ASSOC);
 $listaBaba = $queryPreparada->fetchAll();
+
+
+$sql = "INSERT INTO baba (u.nome, u.cidade, b.valor) VALUES (:u.nome, :u.cidade, :b.valor)";
 
 function alerta(string $mensagem)
 {
@@ -32,6 +33,10 @@ function alerta(string $mensagem)
 <body>
 <header>
     <div class="navbar">
+        <div class="barra">
+             <img src="barraicon.png">
+        </div> 
+    </div>
 </header>
 <div class="boxsearch">
         <form action="pesquisa.php" method="GET">
@@ -51,7 +56,7 @@ function alerta(string $mensagem)
                 <img src="babaicon.png">
                 <td><?=$baba['nomeBaba']; ?></td>
                 <td><?=$baba['cidade']; ?></td>
-                <td><?=$baba['valor']; ?></td>
+                <td><p>R$</p><?=$baba['valor']; ?></td>
         </div>
         <?php endforeach; ?>
         <div class="card">
