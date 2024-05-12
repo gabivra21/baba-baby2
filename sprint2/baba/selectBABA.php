@@ -4,7 +4,7 @@ require 'configu.php';
 $delete = filter_input(INPUT_GET, 'delete');
 /*select BABÁ*/
 $querySQL = "SELECT 
-DISTINCT b.idBaba, u.nome as nomeBaba, 
+DISTINCT b.idBaba, u.nome as nomeBaba, u.cidade,
 b.tempoExp, b.ref, b.sobre, f.nome as fxEtaria, 
 b.valor
 FROM baba as b
@@ -49,6 +49,7 @@ function alerta(string $mensagem)
         <tr>
             <th>ID</th>
             <th>Nome</th>
+            <th>Atua em</th>
             <th>Baba desde</th>
             <th>Tel Referência</th>
             <th>Sobre</th>
@@ -60,11 +61,12 @@ function alerta(string $mensagem)
             <tr>
                 <td><?=$baba['idBaba'];?></td>
                 <td><?=$baba['nomeBaba'];?></td>
+                <td><?=$baba['cidade'];?></td>
                 <td><?=$baba['tempoExp'];?></td>
                 <td><?=$baba['ref'];?></td>
                 <td><?=$baba['sobre'];?></td>
                 <td><?=$baba['fxEtaria'];?></td>
-                <td><?=$baba['valorH'];?></td>
+                <td><?=$baba['valor'];?></td>
                             <td class="acoes">
                                 <a href="disponibilidadeBABA.php?idBaba=<?=$baba['idBaba'];?>" class="botao disponibilidade"> Disponibilidade </a>
                                 <a href="editarBABA.php?idBaba=<?=$baba['idBaba'];?>" class="botao editar"> Editar </a>
