@@ -24,8 +24,12 @@ $resultados = $sth->fetchAll(PDO::FETCH_ASSOC);
 <html>
 <head>
     <title>Baba Baby</title>
+    <link rel="stylesheet" type="text/css" href="menuPAIS.css">
 </head>
 <body>
+<header>
+    <div class="navbar">
+</header>
     <h2>Resultado da pesquisa</h2>
     <?php
     if (count($resultados)) {
