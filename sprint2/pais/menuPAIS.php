@@ -61,7 +61,7 @@ function alerta(string $mensagem)
         <?php endforeach; ?>
         <div class="card">
             <img src="babaicon.png">
-            <p>LAURA</p>
+            <p>MARIA</p>
             <p>CURITIBA - PR</p>
             <p>R$200</p>
         </div>

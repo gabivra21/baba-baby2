@@ -1,18 +1,25 @@
 .navbar {
-    display: flex; 
-    justify-content: flex-end;
-    align-items: center;
-    padding: 30px; 
-    background-color: #EFCFAA; 
+    position: fixed;
     top: 0;
-    height: 5px;
+    left: 0;
+    right: 0;
+    display: flex;
+    background-color: #EFCFAA;
+    height: 50px;
 }
 
 .barra {
-    display:flex;
-    justify-content: right;
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
     width: 30px;
     height: 30px;
+    margin-top: 9px;
+    margin-right: 12px;
+}
+
+.barra:hover {
+    border-color: #999;
 }
 
 .boxsearch {
@@ -22,7 +29,7 @@
     height: 70px;
     margin-right: 5px;
     gap: .1%;
-    margin-top: 40px;
+    margin-top: 65px;
     align-items: center;
 }
 
@@ -58,6 +65,14 @@ h1 {
     color: #EFCFAA;
 }
 
+h3 {
+    text-align: center; 
+    font-family: "Calibri", sans-serif; 
+    font-size: 35px;
+    color: #EFCFAA;
+    margin-top: 80px;
+}
+
 .main{
     display: flex;
     justify-content: center;
@@ -65,12 +80,17 @@ h1 {
 
 .card {
     margin: 45px;
+    margin-bottom: -10px;
     background-color: #EFCFAA;
     width: 200px;
     height: 390px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
     margin-top: 7px;
+}
+
+.card:hover {
+    border-color: #999;
 }
 
 .card>img {

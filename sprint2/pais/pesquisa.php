@@ -28,9 +28,13 @@ $resultados = $sth->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 <header>
-    <div class="navbar">
+<div class="navbar">
+        <div class="barra">
+             <img src="barraicon.png">
+        </div> 
+    </div>
 </header>
-    <h1>RESULTADO DA PESQUISA</h1>
+    <h3>RESULTADO DA PESQUISA</h3>
     <?php
     if (count($resultados)) {
         foreach($resultados as $Resultado) {
