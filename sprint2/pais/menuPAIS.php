@@ -4,7 +4,7 @@ require 'configu.php';
 $delete = filter_input(INPUT_GET, 'delete');
 /*select BABÁ*/
 $querySQL = "SELECT 
-DISTINCT b.idBaba, u.nome as nomeBaba, 
+DISTINCT b.idBaba, u.nome as nomeBaba, u.cidade, 
 b.tempoExp, b.ref, b.sobre, f.nome as fxEtaria, 
 b.valor
 FROM baba as b
@@ -34,10 +34,10 @@ function alerta(string $mensagem)
     <img src="imagem/bbbyy.png" width="120px" class="imagemhead" >
 </header>
     
-    <h1>Listagem de Babá</h1>
+    <h1>Babás Disponíveis</h1>
 
     <form action="pesquisa.php" method="GET">
-        <input type="text" name="search_query" placeholder="Pesquise a babá por nome ou cidade">
+        <input type="text" name="search_query" placeholder="Pesquise por nome ou cidade">
         <input type="submit" value="Pesquisar">
     </form>
 
@@ -45,6 +45,7 @@ function alerta(string $mensagem)
         <tr>
             <th>ID</th>
             <th>Nome</th>
+            <th>Atua em</th>
             <th>Baba desde</th>
             <th>Tel Referência</th>
             <th>Sobre</th>
@@ -56,6 +57,7 @@ function alerta(string $mensagem)
             <tr>
                 <td><?=$baba['idBaba'];?></td>
                 <td><?=$baba['nomeBaba'];?></td>
+                <td><?=$baba['cidade'];?></td>
                 <td><?=$baba['tempoExp'];?></td>
                 <td><?=$baba['ref'];?></td>
                 <td><?=$baba['sobre'];?></td>
