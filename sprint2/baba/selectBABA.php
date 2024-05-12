@@ -5,10 +5,10 @@ $delete = filter_input(INPUT_GET, 'delete');
 /*select BABÁ*/
 $querySQL = "SELECT 
 DISTINCT b.idBaba, u.nome as nomeBaba, 
-b.tempoExp, b.ref, b.sobre, f.nomeF as fxEtaria, 
-b.valorH 
+b.tempoExp, b.ref, b.sobre, f.nome as fxEtaria, 
+b.valor
 FROM baba as b
-LEFT JOIN usuario as u ON b.fk_idUsuario = u.idUsuario 
+LEFT JOIN usuario as u ON b.pk_idUsuario = u.idUsuario 
 LEFT JOIN fxetaria as f ON b.fk_idFxEtaria = f.idFxEtaria;
 ";
 $queryPreparada = $pdo->prepare($querySQL);
