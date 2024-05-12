@@ -1,8 +1,8 @@
 .navbar {
-    display: flex; /* Define o tipo de exibição como flexível para permitir o alinhamento dos itens */
-    justify-content: flex-end; /* Alinha os itens à direita */
-    padding: 30px; /* Adiciona preenchimento à barra de navegação */
-    background-color: #EFCFAA; /* Define a cor de fundo da barra de navegação */
+    display: flex; 
+    justify-content: flex-end;
+    padding: 30px; 
+    background-color: #EFCFAA; 
 }
 
 .boxsearch {
@@ -41,9 +41,9 @@
 }
 
 h1 {
-    text-align: center; /* Centraliza o texto */
-    font-family: "Calibri", sans-serif; /* Define a família da fonte */
-    font-size: 35px; /* Define o tamanho da fonte */
+    text-align: center; 
+    font-family: "Calibri", sans-serif; 
+    font-size: 35px;
     color: #EFCFAA;
 }
 
