@@ -9,10 +9,7 @@
 </head>
 
 <body>
-    <?php
     
-    echo "<h1>Cadastre-se</h1>";
-    ?>
 
 
     <script>
@@ -26,13 +23,45 @@
             }
         }
 
+        function verificarPreenchimento() {
+            var formUsuario = document.getElementById('formUsuario');
+            var campos = formUsuario.querySelectorAll('input[required], select[required], textarea[required]');
+            var preenchido = true;
+
+            campos.forEach(function (campo) {
+                if (!campo.value) {
+                    preenchido = false;
+                }
+            });
+
+            if (preenchido) {
+                document.getElementById('btn-pai').disabled = false;
+                document.getElementById('btn-baba').disabled = false;
+            } else {
+                document.getElementById('btn-pai').disabled = true;
+                document.getElementById('btn-baba').disabled = true;
+            }
+        }
+
+        window.onload = function () {
+            verificarPreenchimento();
+        };
+    </script>
+
 
 
 
 
     </script>
+    <?php
 
-    <form  id="formUsuario">
+    
+    echo "<h1>Cadastre-se</h1>";
+
+    ?>
+
+
+    <form  id="formUsuario" oninput="verificarPreenchimento()">
         <p>Bem-vindo à BabáBaby </p>
         <label><strong>Nome:</strong></label>
         <input name="name" id="nome" type="text" placeholder="Nome"> <br><br>
