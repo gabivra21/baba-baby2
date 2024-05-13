@@ -3,7 +3,7 @@ session_start(); // Inicia a sessão
 define("BASE_URL","http://localhost/baba-baby2/");
 define("BASE_URL_INDEX","http://localhost/baba-baby2/index.php");
 
-$db_name = 'teste';
+$db_name = 'babababy_';
 $db_host = 'localhost';
 $db_port = '3306';
 $db_user = 'root';

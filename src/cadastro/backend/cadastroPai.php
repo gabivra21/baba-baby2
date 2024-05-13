@@ -1,6 +1,6 @@
 <?php
 
-require '../../database/configu.php';
+require 'C:\xampp\htdocs\baba-baby2\conn.php';
 
 $idUsuario = $_COOKIE['idUsuario'];
 $qtdecrianca = filter_input(INPUT_POST, 'qtdeCrianca');
