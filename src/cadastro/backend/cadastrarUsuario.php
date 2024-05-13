@@ -27,8 +27,8 @@ $cadastroUsuarioSQL->bindValue(':email', $email);
 $cadastroUsuarioSQL->bindValue(':senha', $senha);
 
 $cadastroUsuarioSQL->execute();
-$idUsuario = $pdo->lastInsertId();
-$url = "Location: ../cadastro.php?idUsuario=" . $idUsuario;
-header($url);
+setcookie("idUsuario", $pdo->lastInsertId(), time() + 3600);
+// $url = "Location: ../cadastro.php?idUsuario=" . $idUsuario;
+// header($url);
 
 
