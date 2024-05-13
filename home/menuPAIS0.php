@@ -1,5 +1,5 @@
 <?php
-require 'configu.php';
+include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
 
 $querySQL = "SELECT 
 DISTINCT b.idBaba, u.nome as nomeBaba, u.cidade as cidade, 
@@ -59,16 +59,22 @@ function alerta(string $mensagem)
         </div>
         <?php endforeach; ?>
         <div class="card">
-            <img src="babaicon.png">
+        <img src="babaicon.png">
             <p>LAURA</p>
             <p>CURITIBA - PR</p>
             <p>R$200</p>
         </div>
         <div class="card">
             <img src="babaicon.png">
+            <p>MARIA</p>
+            <p>CURITIBA - PR</p>
+            <p>R$250</p>
         </div>
         <div class="card">
             <img src="babaicon.png">
+            <p>FERNANDA</p>
+            <p>CURITIBA - PR</p>
+            <p>R$190</p>
         </div>
     </div>
 
