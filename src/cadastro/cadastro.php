@@ -32,48 +32,48 @@
 
     </script>
 
-    <form method="POST" action="backend/cadastrarUsuario.php">
+    <form  id="formUsuario">
         <p>Bem-vindo à BabáBaby </p>
         <label><strong>Nome:</strong></label>
-        <input name="name" type="text" placeholder="Nome"> <br><br>
+        <input name="name" id="nome" type="text" placeholder="Nome"> <br><br>
 
         <label><strong>Sobrenome:</strong></label>
-        <input name="sobrenome" type="text" placeholder="Sobrenome"> <br><br>
+        <input name="sobrenome" id="sobrenome" type="text" placeholder="Sobrenome"> <br><br>
 
         <label id="dt">
-            <strong>Data de Nascimento:</strong><input type="date" id="data " name="dtaNascimento"
+            <strong>Data de Nascimento:</strong><input type="date" id="data" name="dtaNascimento"
                 oninput="validarData()" required /> <br><br>
         </label>
 
-        <label id="cpf">
-            <strong>CPF:</strong> <input type="text" name="cpf" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}"
+        <label >
+            <strong>CPF:</strong> <input type="text" id="cpf" name="cpf" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}"
                 title="Formato: XXX.XXX.XXX-XX" required /> <br><br>
         </label>
 
         <label>
-            <strong>Telefone:</strong> <input type="text" name="telefone" pattern="\d{2}\s?\d{4,5}-?\d{4}"
+            <strong>Telefone:</strong> <input type="text" id="tel" name="telefone" pattern="\d{2}\s?\d{4,5}-?\d{4}"
                 title="Formato: (XX) XXXX-XXXX ou (XX) XXXXX-XXXX." required /> <br><br>
         </label>
 
         <label><strong>Cidade:</strong></label>
-        <input name="cidade" type="text" placeholder="Cidade"> <br><br>
+        <input name="cidade" id="cidade" type="text" placeholder="Cidade"> <br><br>
 
         <label><strong>Endereço:</strong></label>
-        <input name="endereco" type="text" placeholder="Endereço"> <br><br>
+        <input name="endereco" id="endereco" type="text" placeholder="Endereço"> <br><br>
 
-        <label><strong>Email:</strong> <input type="email" name="email" placeholder="Email"
+        <label><strong>Email:</strong> <input id="email" type="email" name="email" placeholder="Email"
                 title="Email entre 10 e 50 letras, deve conter @." required /> <br><br>
         </label>
 
         <label>
-            <strong>Senha: </strong><input type="password" name="senha"
+            <strong>Senha: </strong><input type="password" id="senha" name="senha"
                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,16}$" required
                 title="A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número, um caractere especial e ter entre 8 e 16 caracteres" />
         </label>
 
         <div>
-            <input type="submit" id="btn-pai" value="Sou Pai/Responsável">
-            <input type="submit" id="btn-baba" value="Sou Baba">
+            <input type="button" class="modalForm" id="btn-pai" value="Sou Pai/Responsável"/>
+            <input type="button" class="modalForm" id="btn-baba" value="Sou Baba"/>
         </div>
 
     </form>
@@ -148,6 +148,7 @@
             </fieldset>
         </form>
     </dialog>
+    <script src="../../js/jquery.js"></script>
     <script src="js/cadastrar.js"></script>
 </body>
 </html>
