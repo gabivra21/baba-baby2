@@ -1,6 +1,6 @@
 <?php
 
-require 'configu.php';
+require 'C:\xampp\htdocs\baba-baby2\conn.php';
 
 $id = filter_input(INPUT_GET, 'idDisponibilidade');
 $idBaba = filter_input(INPUT_GET, 'idBaba');

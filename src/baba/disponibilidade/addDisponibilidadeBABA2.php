@@ -1,6 +1,6 @@
 <?php
 
-require 'configu.php';
+require 'C:\xampp\htdocs\baba-baby2\conn.php';
 
 $idBaba = $_GET['idBaba'];
 
