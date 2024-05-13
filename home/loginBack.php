@@ -1,6 +1,4 @@
 <?php
-session_start(); // Inicia a sessão
-
 require 'C:\xampp\htdocs\baba-baby2\conn.php';
 
 // Verifica se o formulário foi submetido
@@ -54,14 +52,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 // Se o email e senha não estiverem presentes na tabela usuario, define a mensagem de erro
                 $_SESSION['msgErro'] = "Email ou senha inválidos.";
-                header("Location: index.php");
+                header("Location:".BASE_URL_INDEX);
                 exit();
                 
             }
 
-            if(isset($_SESSION['msg_erro'])){
-                echo $_SESSION['msg_erro'];
-                unset($_SESSION['msg_erro']);
+            if(isset($_SESSION['msgErro'])){
+                echo $_SESSION['msgErro'];
+                unset($_SESSION['msgErro']);
             }
 
         } catch(PDOException $e) {

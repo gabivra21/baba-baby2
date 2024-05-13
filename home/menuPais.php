@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
 
 if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
