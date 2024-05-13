@@ -53,7 +53,7 @@ body {
     color: white; /* Define a cor do texto do botão */
     font-size: 18px; /* Define o tamanho da fonte do texto do botão */
     position: absolute; /* Define a posição absoluta para permitir o posicionamento em qualquer lugar */
-    top: 63%; /* Posiciona o botão no meio da tela verticalmente */
+    top: 90%; /* Posiciona o botão no meio da tela verticalmente */
     left: 72%; /* Posiciona o botão a 70% da largura da tela, começando da esquerda */
     transition: background-color 0.3s ease;
 }
@@ -181,7 +181,7 @@ a:hover {
     margin: 0 auto; /* Isso centralizará a imagem */
     position: relative; /* Define a posição da imagem do logo como relativa ao seu contêiner pai */
     top: 140px; /* Ajuste a distância do topo conforme necessário */
-    left: -225px; /* Ajuste a distância da esquerda conforme necessário */
+    left: -150px; /* Ajuste a distância da esquerda conforme necessário */
 }
 
 /* Define o estilo do carrossel */
