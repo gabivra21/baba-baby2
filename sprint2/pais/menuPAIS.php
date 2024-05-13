@@ -15,8 +15,6 @@ $queryPreparada->setFetchMode(PDO::FETCH_ASSOC);
 $listaBaba = $queryPreparada->fetchAll();
 
 
-$sql = "INSERT INTO baba (u.nome, u.cidade, b.valor) VALUES (:u.nome, :u.cidade, :b.valor)";
-
 function alerta(string $mensagem)
 {
     echo "<script type='text/javascript' >
@@ -38,6 +36,7 @@ function alerta(string $mensagem)
         </div> 
     </div>
 </header>
+
 <div class="boxsearch">
         <form action="pesquisa.php" method="GET">
             <input type="text" name="search_query" placeholder="Pesquise por nome ou cidade" class="caixa">
@@ -61,7 +60,7 @@ function alerta(string $mensagem)
         <?php endforeach; ?>
         <div class="card">
             <img src="babaicon.png">
-            <p>MARIA</p>
+            <p>LAURA</p>
             <p>CURITIBA - PR</p>
             <p>R$200</p>
         </div>
