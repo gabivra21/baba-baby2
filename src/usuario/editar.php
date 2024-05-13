@@ -1,5 +1,5 @@
 <?php
-require '../database/configu.php';
+require 'C:\xampp\htdocs\baba-baby2\conn.php';
 
 $usuario = [];
 $idUsuario = filter_input(INPUT_GET, 'idUsuario');

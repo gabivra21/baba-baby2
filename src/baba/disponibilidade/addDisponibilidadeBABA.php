@@ -3,7 +3,7 @@
 $id = $_GET['idBaba'];
 // $erro = filter_input(INPUT_GET, 'erro');
 
-require 'configu.php';
+require 'C:\xampp\htdocs\baba-baby2\conn.php';
 //OBTEM DIAS DA SEMANA
 $querySQL = "SELECT * FROM dia";
 $queryPreparada = $pdo->prepare($querySQL);
