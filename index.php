@@ -1,56 +1,86 @@
-<!--?php include("validaUsuarioLogado.php");?-->
-<html>
-    <head>
-        <title>BabáBaby</title>
-        <link rel="stylesheet" href="css\style.css">
-    </head>
-    <body>
-    <header>
-            <div class="center">
-                <div class="logo">
-                    <img src="imagem\bbbyy.png" width="120px">
-                    <img src="imagem\nome.jpg" width="250px">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BabáBaby</title>
+    <link rel="shortcut icon" type="imagex/png" href="imgIndex/bbbyynew.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a class="nav-button" href="#sobre">Sobre</a>
+        <a class="nav-button" href="#contato">Contato</a>
+    </div>
+
+    <div class="content">
+        <div class="carrossel">
+            <div class="imagens-carrossel">
+                <img src="imgIndex/bannerbaba0.jpg" alt="Imagem 1">
+                <img src="imgIndex/bannerbaba2.jpg" alt="Imagem 2">
+                <img src="imgIndex/bannerbaba3.jpg" alt="Imagem 3">
+                <img src="imgIndex/bannerbaba4.jpg" alt="Imagem 4">
+            </div>
+        </div>
+
+        <div class="logo">
+            <img src="imgIndex/logo.png" alt="Logo Babababy">
+        
+            <button id="open-modal" class="enter-button">Entrar</button>
+            <div id="fade" class="hide"></div>
+            <div id="modal" class="hide">
+                <div id="modal-header">
+                    <h1>Faça seu login!</h1>
+                    <button id="close-modal">x</button>
                 </div>
-                <div class="menu">
-                    <ul>
-                        <div class="dropdown">
-                            <li class="dropbtn">Geral</li>
-                            <div class="dropdown-content">
-                                <a href="src/usuario/select.php">Listar</a>
-                            </div>
-                        </div>
+                <div id="modal-body">
+                    <form method="POST" action="home\loginBack.php">
+                        <span class="msg_erro">
+                        <?php echo isset($msgErro) ? $msgErro : ''; ?>
+                        </span>
+
+                        <input type="email" name="email" placeholder="Digite seu Email" required>
+                        <input class="passw_area" type="password" name="senha" placeholder="Digite sua Senha" required>
                         
-                        <div class="dropdown">
-                            <li class="dropbtn">Babás</li>
-                            <div class="dropdown-content">
-                                <a href="selectBABA.php">Listar</a>
-                                <a href="cadastrarBABA1.php">Cadastrar</a>
-                            </div>
-                        </div>
-                       
-                        <div class="dropdown">
-                            <li class="dropbtn">Pais</li>
-                            <div class="dropdown-content">
-                                <a href="selectPAIS.php">Listar</a>
-                                <a href="cadastrarPAIS1.php">Cadastrar</a>
-                            </div>
-                        </div>
-                        <div class="cc">
-                        <a href="cadastroPG.php">Criar Conta</a>
-                        </div>
-                    </ul>    
-                </div>  
-            </div>  
-        </header>
-        <section class="sobre">
-            <div class="extras">
-                <img src="">
-            </div>
-            <div class="center">
-                <div class="texto-sobre">
-                    <h1>Confie-nos o <span style="color: darksalmon;">cuidado</span>,<br>liberamos seu <span style="color: rgb(156, 88, 220);">tempo</span>.</h1>
-                    <p>Nosso site conecta pais e babás de forma segura, auxiliando os pais na busca pela babá ideal e permitindo uma avaliação mútua. Oferecemos recursos de segurança e privacidade para garantir um ambiente confiável para a troca de informações pessoais.</p>
+                        <p>Não possui conta? <a href="">Cadastre-se</a><p>
+
+                        <button class="btn_login" name="SendLogin">Logar</button>
+                    </form>
                 </div>
             </div>
-    </body>
+        </div>
+    </div>
+
+    <script> 
+        //Script para funcionamento do Carrossel
+        let index = 0;
+        const images = document.querySelectorAll('.imagens-carrossel img');
+
+        function updateCarousel() {
+            document.querySelector('.imagens-carrossel').style.transform = `translateX(${-index * 100}%)`;
+        }
+
+        setInterval(() => {
+            index = index < images.length - 1 ? index + 1 : 0;
+            updateCarousel();
+        }, 5500); // Velocidade de rotação do carrossel
+
+
+        //Script para funcionamento do Modal
+        const openModalButton = document.querySelector("#open-modal");
+        const closeModalButton = document.querySelector("#close-modal");
+        const modal = document.querySelector("#modal");
+        const fade = document.querySelector("#fade");
+
+        const toggleModal = () => {
+            //modal.classList.toggle("hide");
+            //fade.classList.toggle("hide");
+            [modal, fade].forEach((el) => el.classList.toggle("hide"));
+        }
+
+        [openModalButton, closeModalButton, fade].forEach((el) => {
+            el.addEventListener("click", () => toggleModal())
+        })
+    </script>
+</body>
 </html>
