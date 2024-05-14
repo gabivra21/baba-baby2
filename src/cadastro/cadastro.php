@@ -11,7 +11,7 @@
 <body>
     <?php
     
-    echo "<h1>Cadastre-se</h1>";
+    echo "<h1>Cadastre-se no site</h1>";
     ?>
 
 
