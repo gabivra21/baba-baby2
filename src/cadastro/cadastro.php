@@ -26,16 +26,41 @@
             }
         }
 
+        function verificarPreenchimento() {
+            var formUsuario = document.getElementById('formUsuario');
+            var campos = formUsuario.querySelectorAll('input[required], select[required], textarea[required], file[required]');
+            var preenchido = true;
+
+            campos.forEach(function (campo) {
+                if (!campo.value) {
+                    preenchido = false;
+                }
+            });
+
+            if (preenchido) {
+                document.getElementById('btn-pai').disabled = false;
+                document.getElementById('btn-baba').disabled = false;
+            } else {
+                document.getElementById('btn-pai').disabled = true;
+                document.getElementById('btn-baba').disabled = true;
+            }
+        }
+
+        window.onload = function () {
+            verificarPreenchimento();
+        };
+
+
 
 
 
 
     </script>
 
-    <form  id="formUsuario">
+    <form  id="formUsuario" oninput="verificarPreenchimento()" enctype="multipart/form-data">
         <p>Bem-vindo à BabáBaby </p>
         <label><strong>Nome:</strong></label>
-        <input name="name" id="nome" type="text" placeholder="Nome"> <br><br>
+        <input name="name" id="name" type="text" placeholder="Nome"> <br><br>
 
         <label><strong>Sobrenome:</strong></label>
         <input name="sobrenome" id="sobrenome" type="text" placeholder="Sobrenome"> <br><br>
@@ -60,6 +85,9 @@
 
         <label><strong>Endereço:</strong></label>
         <input name="endereco" id="endereco" type="text" placeholder="Endereço"> <br><br>
+
+        <label><strong>Foto:</strong></label>
+        <input name="foto" id="foto" type="file" required> <br><br>
 
         <label><strong>Email:</strong> <input id="email" type="email" name="email" placeholder="Email"
                 title="Email entre 10 e 50 letras, deve conter @." required /> <br><br>

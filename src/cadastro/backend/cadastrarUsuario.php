@@ -15,9 +15,9 @@ $senha = filter_input(INPUT_POST, "senha");
 $cpf = str_replace("-", "", str_replace(".", "", $cpf));
 
 
-$cadastroUsuarioSQL = $pdo->prepare("INSERT INTO usuario (cpf, nome, sobrenome, dtaNascimento, telefone, endereco, cidade, email, senha) VALUES (:cpf, :nome, :sobrenome, :dtaNascimento, :telefone, :endereco, :cidade, :email, :senha)");
+$cadastroUsuarioSQL = $pdo->prepare("INSERT INTO usuario (cpf, name, sobrenome, dtaNascimento, telefone, endereco, cidade, email, senha) VALUES (:cpf, :nome, :sobrenome, :dtaNascimento, :telefone, :endereco, :cidade, :email, :senha)");
 $cadastroUsuarioSQL->bindValue(':cpf', $cpf);
-$cadastroUsuarioSQL->bindValue(':nome', $name);
+$cadastroUsuarioSQL->bindValue(':name', $name);
 $cadastroUsuarioSQL->bindValue(':sobrenome', $sobrenome);
 $cadastroUsuarioSQL->bindValue(':dtaNascimento', $dtaNascimento);
 $cadastroUsuarioSQL->bindValue(':telefone', $telefone);
