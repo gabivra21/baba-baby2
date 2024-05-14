@@ -21,7 +21,7 @@
                 <div class="cadastro-pais">
                     <img class="icon" src="../../imagem/paisicon.png"></img>
                     <h1>Seja um Pai</h1>
-                    <p>Ao criar seu perfil, você terá acesso ao perfil de diversas babás para te ajudar!</p>
+                    <p>Ao criar seu perfil, você terá acesso ao perfil de diversas babás para te ajudar e poderá enviar-lhes uma proposta!</p>
                     <a href="cadastro.php"><button class="btn">Cadastrar Pais</button></a>
                 </div>
             </section>
