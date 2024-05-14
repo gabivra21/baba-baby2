@@ -20,7 +20,7 @@ if(isset($_FILES['foto'])){
     if($deu_certo)
         echo"arquivo enviado";
     else
-        echo"falha";
+        echo"falha ao enviar arquivo";
 
 }
 
