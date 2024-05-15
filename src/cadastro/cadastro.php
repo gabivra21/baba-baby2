@@ -181,7 +181,7 @@
                 </div>
                 <div>
                     <label for="valor">Valor</label>
-                    <input type="text" placeholder="150,00" name="valorH" pattern="\d+(\.\d+)?" required
+                    <input type="text" placeholder="150,00" name="valor" pattern="\d+(\.\d+)?" required
                         title="Insira um valor em reais (com ponto ao invés de vírgula!)" />
                 </div>
                 <?php require "componente/diasSemana.php"; ?>
