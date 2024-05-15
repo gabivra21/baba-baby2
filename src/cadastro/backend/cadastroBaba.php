@@ -2,7 +2,7 @@
 
 require '../../database/configu.php';
 require '../../componente/diasSemana.php/';
-require '../../componente/horarios.php';
+require "../../componente/horarios.php";
 
 
 $idUsuario = $_COOKIE['idUsuario'];
