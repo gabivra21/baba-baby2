@@ -26,7 +26,7 @@
             }
         }
 
-        /*function verificarPreenchimento() {
+        function verificarPreenchimento() {
             var formUsuario = document.getElementById('formUsuario');
             var campos = formUsuario.querySelectorAll('input[required], select[required], textarea[required], file[required]');
             var preenchido = true;
@@ -48,7 +48,7 @@
 
         window.onload = function () {
             verificarPreenchimento();
-        };*/
+        }
 
         const form = document.getElementById('formUsuario');
         const campos = document.querySelectorAll('.required');
@@ -151,7 +151,7 @@
     </dialog>
 
     <dialog id="modal-baba">
-        <form class="baba" method="POST" action="">
+        <form class="baba" method="POST" action="backend/cadastroBaba.php">
             <fieldset>
                 <legend>Dados Adicionais</legend>
                 <div>

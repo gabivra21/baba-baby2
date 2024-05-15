@@ -11,26 +11,27 @@ $cidade = filter_input(INPUT_POST, "cidade");
 $endereco = filter_input(INPUT_POST, "endereco");
 $email = filter_input(INPUT_POST, "email");
 $senha = filter_input(INPUT_POST, "senha");
+$foto = filter_input(INPUT_POST, "foto");
 
-// if(isset($_FILES['foto'])){
-//     $foto = $_FILES['foto'];
+ if(isset($_FILES['foto'])){
+     $foto = $_FILES['foto'];
 
-//     $pasta = "src\cadastro\arquivos";
-//     $nomeDaFoto = $foto['name'];
-//     $extensao = strtolower(pathinfo($nomeDaFoto, PATHINFO_EXTENSION));
+     $pasta = "src\cadastro\arquivos";
+     $nomeDaFoto = $foto['name'];
+     $extensao = strtolower(pathinfo($nomeDaFoto, PATHINFO_EXTENSION));
 
-//     if($extensao != "jpg" && $extensao != "png")
-//         die('tipo de arquivo não aceito');
+     if($extensao != "jpg" && $extensao != "png")
+         die('tipo de arquivo não aceito');
 
     
-//     $path = $pasta . $nomeDaFoto . "." . $extensao;
-//     $deu_certo = move_uploaded_file($foto["tmp_name"], $path);
-//     if($deu_certo)
-//         echo"arquivo enviado";
-//     else
-//         echo"falha";
+     $path = $pasta . $nomeDaFoto . "." . $extensao;
+     $deu_certo = move_uploaded_file($foto["tmp_name"], $path);
+     if($deu_certo)
+         echo"arquivo enviado";
+     else
+         echo"falha";
 
-// }
+}
 
 $cpf = str_replace("-", "", str_replace(".", "", $cpf));
 
@@ -45,7 +46,7 @@ $cadastroUsuarioSQL->bindValue(':endereco', $endereco);
 $cadastroUsuarioSQL->bindValue(':cidade', $cidade);
 $cadastroUsuarioSQL->bindValue(':email', $email);
 $cadastroUsuarioSQL->bindValue(':senha', $senha);
-// $cadastrarPaiSQL->bindValue(':foto',$foto);
+$cadastrarPaiSQL->bindValue(':foto',$foto);
 
 $cadastroUsuarioSQL->execute();
 setcookie("idUsuario", $pdo->lastInsertId(), time() + 3600);
