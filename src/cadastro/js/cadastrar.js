@@ -38,6 +38,7 @@ btnNao.onclick = () => {
 
 $(document).ready(() => {
     for (var i = 0; i < btnModais.length; i++) {
+        console.log("ESTOU AQUI")
         btnModais[i].addEventListener('click', () => {
             var form = new FormData($("#formUsuario")[0]);
             $.ajax({

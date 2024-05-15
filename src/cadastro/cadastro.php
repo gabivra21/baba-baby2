@@ -9,7 +9,10 @@
 </head>
 
 <body>
+    <?php
     
+    echo "<h1>Cadastre-se</h1>";
+    ?>
 
 
     <script>
@@ -25,7 +28,7 @@
 
         function verificarPreenchimento() {
             var formUsuario = document.getElementById('formUsuario');
-            var campos = formUsuario.querySelectorAll('input[required], select[required], textarea[required]');
+            var campos = formUsuario.querySelectorAll('input[required], select[required], textarea[required], file[required]');
             var preenchido = true;
 
             campos.forEach(function (campo) {
@@ -46,25 +49,18 @@
         window.onload = function () {
             verificarPreenchimento();
         };
+
+
+
+
+
+
     </script>
 
-
-
-
-
-    </script>
-    <?php
-
-    
-    echo "<h1>Cadastre-se</h1>";
-
-    ?>
-
-
-    <form  id="formUsuario" oninput="verificarPreenchimento()">
+    <form  id="formUsuario" oninput="verificarPreenchimento()" enctype="multipart/form-data">
         <p>Bem-vindo à BabáBaby </p>
         <label><strong>Nome:</strong></label>
-        <input name="name" id="nome" type="text" placeholder="Nome"> <br><br>
+        <input name="name" id="name" type="text" placeholder="Nome"> <br><br>
 
         <label><strong>Sobrenome:</strong></label>
         <input name="sobrenome" id="sobrenome" type="text" placeholder="Sobrenome"> <br><br>
@@ -90,13 +86,16 @@
         <label><strong>Endereço:</strong></label>
         <input name="endereco" id="endereco" type="text" placeholder="Endereço"> <br><br>
 
+        <label><strong>Foto:</strong></label>
+        <input name="foto" id="foto" type="file" required> <br><br>
+
         <label><strong>Email:</strong> <input id="email" type="email" name="email" placeholder="Email"
                 title="Email entre 10 e 50 letras, deve conter @." required /> <br><br>
         </label>
 
         <label>
             <strong>Senha: </strong><input type="password" id="senha" name="senha"
-                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,16}$" required
+                pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[^\da-zA-Z]).{8,16}$" required
                 title="A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número, um caractere especial e ter entre 8 e 16 caracteres" />
         </label>
 

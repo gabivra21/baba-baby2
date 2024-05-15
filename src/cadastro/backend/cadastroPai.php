@@ -2,7 +2,7 @@
 
 require '../../database/configu.php';
 
-$idUsuario = $_COOKIE['idUsuario'];
+$idUsuario = $_COOKIE[ 'idUsuario'];
 $qtdecrianca = filter_input(INPUT_POST, 'qtdeCrianca');
 $descricao = filter_input(INPUT_POST, 'descricao');
 
