@@ -1,5 +1,5 @@
 <?php
-require 'configu.php';
+require 'C:\xampp\htdocs\baba-baby2\conn.php';
 
 /*update USUARIO*/
 $id = filter_input(INPUT_POST, 'idBaba');

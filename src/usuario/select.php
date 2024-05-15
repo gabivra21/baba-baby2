@@ -1,6 +1,6 @@
 
 <?php
-require '../database/configu.php';
+require 'C:\xampp\htdocs\baba-baby2\conn.php';
 
 /*select USUARIO-TODOS*/
 $lista = [];

@@ -1,14 +1,6 @@
 <?php
 include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
 
-define("BASE_URL","http://localhost/baba-baby2/");
-define("BASE_URL_INDEX","http://localhost/baba-baby2/index.php");
-
-if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
-    $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
-    header("Location:".BASE_URL_INDEX);
-}
-
 $querySQL = "SELECT 
 DISTINCT b.idBaba, u.nome as nomeBaba, u.cidade as cidade, 
 b.tempoExp, b.ref, b.sobre, f.nome as fxEtaria, 
@@ -22,6 +14,7 @@ $queryPreparada->execute();
 $queryPreparada->setFetchMode(PDO::FETCH_ASSOC);
 $listaBaba = $queryPreparada->fetchAll();
 
+
 function alerta(string $mensagem)
 {
     echo "<script type='text/javascript' >
@@ -29,28 +22,22 @@ function alerta(string $mensagem)
           </script>";
 }
 ?>
-
-
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
     <title>Baba Baby</title>
     <link rel="stylesheet" type="text/css" href="menuPAIS.css">
-    </head>
-
-    <body>
-    <header>
+</head>
+<body>
+<header>
     <div class="navbar">
         <div class="barra">
-             <img src="/imagem/barraicon.png">
+             <img src="barraicon.png">
         </div> 
     </div>
-    </header>
+</header>
 
-        <h1>Bem-vindo, <?php echo $_SESSION['nome']; ?></h1>
-        <a href="sair.php">Sair</a>
-
-        <div class="boxsearch">
+<div class="boxsearch">
         <form action="pesquisa.php" method="GET">
             <input type="text" name="search_query" placeholder="Pesquise por nome ou cidade" class="caixa">
             <button class="botao">
@@ -58,38 +45,38 @@ function alerta(string $mensagem)
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>
             </button>
         </form>
-        </div>
+    </div>
 
     <h1>BABÁS DISPONÍVEIS</h1>
 
     <div class="main">
         <?php foreach($listaBaba as $baba): ?>
             <div class="card">
-                <img src="/imagem/babaicon.png">
+                <img src="babaicon.png">
                 <td><?=$baba['nomeBaba']; ?></td>
                 <td><?=$baba['cidade']; ?></td>
                 <td><p>R$</p><?=$baba['valor']; ?></td>
         </div>
         <?php endforeach; ?>
         <div class="card">
-            <img src="/imagem/babaicon.png">
+        <img src="babaicon.png">
             <p>LAURA</p>
             <p>CURITIBA - PR</p>
             <p>R$200</p>
         </div>
         <div class="card">
-            <img src="/imagem/babaicon.png">
+            <img src="babaicon.png">
             <p>MARIA</p>
             <p>CURITIBA - PR</p>
             <p>R$250</p>
         </div>
         <div class="card">
-            <img src="/imagem/babaicon.png">
+            <img src="babaicon.png">
             <p>FERNANDA</p>
             <p>CURITIBA - PR</p>
             <p>R$190</p>
         </div>
     </div>
 
-    </body>
+</body>
 </html>

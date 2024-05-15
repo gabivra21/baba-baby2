@@ -1,3 +1,15 @@
+<?php
+    if(!isset($_SESSION)){
+        session_start(); // Inicia a sessão
+    }
+    if(array_key_exists("msgErro",$_SESSION)){
+        $msgErro = $_SESSION["msgErro"];
+    }else{
+        $msgErro = false;
+    }
+    
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -35,14 +47,18 @@
                 </div>
                 <div id="modal-body">
                     <form method="POST" action="home\loginBack.php">
-                        <span class="msg_erro">
-                        <?php echo isset($msgErro) ? $msgErro : ''; ?>
-                        </span>
+                        <!-- Exibir a mensagem de erro aqui -->
+                        <?php if(isset($_SESSION['msgErro'])): ?>
+                        <div class="msg_erro"><?php echo $_SESSION['msgErro']; ?></div>
+                        <?php unset($_SESSION['msgErro']); ?>
+                        <!-- Remove a mensagem de erro da sessão -->
+                        <?php endif; ?>
 
                         <input type="email" name="email" placeholder="Digite seu Email" required>
                         <input class="passw_area" type="password" name="senha" placeholder="Digite sua Senha" required>
                         
                         <p>Não possui conta? <a href="src/cadastro/cadastro.php">Cadastre-se</a><p>
+
 
                         <button class="btn_login" name="SendLogin">Logar</button>
                     </form>
