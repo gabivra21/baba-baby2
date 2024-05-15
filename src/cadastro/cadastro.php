@@ -26,7 +26,7 @@
             }
         }
 
-        function verificarPreenchimento() {
+        /*function verificarPreenchimento() {
             var formUsuario = document.getElementById('formUsuario');
             var campos = formUsuario.querySelectorAll('input[required], select[required], textarea[required], file[required]');
             var preenchido = true;
@@ -48,7 +48,22 @@
 
         window.onload = function () {
             verificarPreenchimento();
-        };
+        };*/
+
+        const form = document.getElementById('formUsuario');
+        const campos = document.querySelectorAll('.required');
+        const emailRegex = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)$/;
+
+        function nameValidate(){
+            if (campos[0].value.length < 3)
+            {
+                alert('Nome deve ter 3 caracteres');
+            }
+            else
+            {
+                console.log('nome validado');
+            }
+        }
 
 
 
@@ -60,7 +75,7 @@
     <form  id="formUsuario" oninput="verificarPreenchimento()" enctype="multipart/form-data">
         <p>Bem-vindo à BabáBaby </p>
         <label><strong>Nome:</strong></label>
-        <input name="name" id="name" type="text" placeholder="Nome"> <br><br>
+        <input class="required"name="name" id="name" type="text" placeholder="Nome" oninput="nameValidate()"> <br><br>
 
         <label><strong>Sobrenome:</strong></label>
         <input name="sobrenome" id="sobrenome" type="text" placeholder="Sobrenome"> <br><br>
