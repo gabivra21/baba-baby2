@@ -9,6 +9,9 @@
 </head>
 
 <body>
+<div class="logo-container">
+        <img src="../../imgIndex/bbbyynew.ico" alt="Logo" class="logo">
+    </div>
     <?php
     
     echo "<h1>Cadastre-se</h1>";
@@ -48,7 +51,22 @@
 
         window.onload = function () {
             verificarPreenchimento();
-        };
+        }
+
+        const form = document.getElementById('formUsuario');
+        const campos = document.querySelectorAll('.required');
+        const emailRegex = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)$/;
+
+        function nameValidate(){
+            if (campos[0].value.length < 3)
+            {
+                alert('Nome deve ter 3 caracteres');
+            }
+            else
+            {
+                console.log('nome validado');
+            }
+        }
 
 
 
@@ -60,7 +78,7 @@
     <form  id="formUsuario" oninput="verificarPreenchimento()" enctype="multipart/form-data">
         <p>Bem-vindo à BabáBaby </p>
         <label><strong>Nome:</strong></label>
-        <input name="name" id="name" type="text" placeholder="Nome"> <br><br>
+        <input class="required"name="name" id="name" type="text" placeholder="Nome" oninput="nameValidate()"> <br><br>
 
         <label><strong>Sobrenome:</strong></label>
         <input name="sobrenome" id="sobrenome" type="text" placeholder="Sobrenome"> <br><br>
@@ -95,13 +113,13 @@
 
         <label>
             <strong>Senha: </strong><input type="password" id="senha" name="senha"
-                pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[^\da-zA-Z]).{8,16}$" required
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,16}$" required
                 title="A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número, um caractere especial e ter entre 8 e 16 caracteres" />
         </label>
 
         <div>
             <input type="button" class="modalForm" id="btn-pai" value="Sou Pai/Responsável"/>
-            <input type="button" class="modalForm" id="btn-baba" value="Sou Baba"/>
+            <input type="button" class="modalForm" id="btn-baba" value="Sou Babá"/>
         </div>
 
     </form>
@@ -122,6 +140,7 @@
                     <button class="btn-cancelar">Cancelar</button>
                 </div>
                 </fieldset>
+                
             </form>
     </dialog>
     
@@ -131,12 +150,12 @@
         </div>
         <div>
             <button id="btn-sim">Sim</button>
-            <button id="btn-nao">Não</button>
+            <button class="corbotn" id="btn-nao">Não</button>
         </div>
     </dialog>
 
     <dialog id="modal-baba">
-        <form class="baba" method="POST" action="">
+        <form class="baba" method="POST" action="backend/cadastroBaba.php">
             <fieldset>
                 <legend>Dados Adicionais</legend>
                 <div>
@@ -166,7 +185,7 @@
                 </div>
                 <div>
                     <label for="valor">Valor</label>
-                    <input type="text" placeholder="150,00" name="valorH" pattern="\d+(\.\d+)?" required
+                    <input type="text" placeholder="150,00" name="valor" pattern="\d+(\.\d+)?" required
                         title="Insira um valor em reais (com ponto ao invés de vírgula!)" />
                 </div>
                 <?php require "componente/diasSemana.php"; ?>
