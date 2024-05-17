@@ -49,6 +49,4 @@ $cadastroUsuarioSQL->bindValue(':senha', $senha);
 $cadastrarPaiSQL->bindValue(':foto',$foto);
 
 $cadastroUsuarioSQL->execute();
-setcookie("idUsuario", $pdo->lastInsertId(), time() + 3600);
-// $url = "Location: ../cadastro.php?idUsuario=" . $idUsuario;
-// header($url);
+//setcookie("idUsuario", $pdo->lastInsertId(), time() + 3600);
