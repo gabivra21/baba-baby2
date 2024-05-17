@@ -2,3 +2,328 @@
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(2px); 
 }
+
+body {
+    background-color: #EFCFAA;
+    font-family: Arial, sans-serif;
+    color: darksalmon;
+}
+
+h1 {
+    text-align: center;
+    color: #8f008f;
+}
+
+form {
+    
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+
+}
+
+form p {
+    font-size: 1.2em;
+    color: #d894d4;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: darksalmon;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="file"],
+select,
+textarea {
+    
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0px;
+    border: 1px solid #d894d4;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+input[type="button"],
+input[type="submit"],
+button {
+    background-color: #d894d4;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+input[type="button"]:disabled,
+input[type="submit"]:disabled {
+    background-color: #EFCFAA;
+    cursor: not-allowed;
+}
+
+button.btn-cancelar {
+    background-color: darksalmon;
+}
+
+.dialog {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: 1px solid #d894d4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+legend {
+    color: #d894d4;
+    font-weight: bold;
+}
+
+.dialog form div {
+    margin-bottom: 15px;
+}
+
+.dialog form label {
+    display: block;
+    margin-bottom: 5px;
+    color: darksalmon;
+}
+
+.dialog form input[type="text"],
+.dialog form input[type="submit"],
+.dialog form input[type="button"],
+.dialog form button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #d894d4;
+    border-radius: 5px;
+}
+
+.dialog form input[type="submit"],
+.dialog form button {
+    background-color: #d894d4;
+    color: white;
+}
+
+.dialog form input[type="submit"]:disabled,
+.dialog form button:disabled {
+    background-color: #EFCFAA;
+    cursor: not-allowed;
+
+}
+
+.logo-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.logo {
+    max-width: 60px; /* Ajuste este valor conforme necessário */
+    height: auto;
+}
+
+/* Estilos gerais para os modais */
+dialog {
+    width: 80%;
+    max-width: 500px;
+    margin: auto;
+    border: none;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Estilos específicos para os formulários dentro dos modais */
+dialog form {
+    display: flex;
+    flex-direction: column;
+}
+
+dialog fieldset {
+    border: 1px solid #d894d4;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+dialog legend {
+    color: #d894d4;
+    font-weight: bold;
+}
+
+dialog label {
+    display: block;
+    margin-bottom: 5px;
+    color: darksalmon;
+}
+
+dialog input[type="text"],
+dialog input[type="submit"],
+dialog button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #d894d4;
+    border-radius: 5px;
+}
+
+dialog input[type="submit"],
+dialog button {
+    background-color: #d894d4;
+    color: white;
+    cursor: pointer;
+}
+
+dialog input[type="submit"]:disabled,
+dialog button:disabled {
+    background-color: #EFCFAA;
+    cursor: not-allowed;
+}
+
+dialog button.btn-cancelar {
+    background-color: darksalmon;
+    margin-top: 10px;
+}
+
+/* Estilo adicional para o conteúdo dentro dos modais */
+.dialog-content div {
+    margin-bottom: 15px;
+}
+
+.dialog-content label {
+    margin-bottom: 5px;
+    color: darksalmon;
+}
+
+.dialog-content input[type="text"],
+.dialog-content select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #d894d4;
+    border-radius: 5px;
+}
+
+/* Estilos gerais para os modais */
+dialog {
+    width: 80%;
+    max-width: 500px;
+    margin: auto;
+    border: none;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #d894d4;
+    overflow: hidden;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Estilos específicos para os formulários dentro dos modais */
+dialog form {
+    display: flex;
+    flex-direction: column;
+}
+
+dialog fieldset {
+    border: 1px solid #d894d4;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+dialog legend {
+    color: #d894d4;
+    font-weight: bold;
+}
+
+dialog label {
+    display: block;
+    margin-bottom: 5px;
+    color: darksalmon;
+}
+
+dialog input[type="text"],
+dialog input[type="submit"],
+dialog button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #d894d4;
+    border-radius: 5px;
+}
+
+dialog input[type="submit"],
+dialog button {
+    background-color: #9af8af;
+    color: rgb(77, 77, 77);
+    cursor: pointer;
+}
+
+dialog input[type="submit"]:disabled,
+dialog button:disabled {
+    background-color: #EFCFAA;
+    cursor: not-allowed;
+}
+
+dialog button.btn-cancelar {
+    background-color: rgb(253, 167, 139);
+    margin-top: 10px;
+}
+
+/* Estilo adicional para o conteúdo dentro dos modais */
+.dialog-content div {
+    margin-bottom: 15px;
+}
+
+.dialog-content label {
+    margin-bottom: 5px;
+    color: darksalmon;
+}
+
+.corbotn {
+    background-color: rgb(253, 167, 139);
+}
+
+.dialog-content input[type="text"],
+.dialog-content select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #d894d4;
+    border-radius: 5px;
+}

@@ -9,9 +9,12 @@
 </head>
 
 <body>
+<div class="logo-container">
+        <img src="../../imgIndex/bbbyynew.ico" alt="Logo" class="logo">
+    </div>
     <?php
     
-    echo "<h1>Cadastre-se no site</h1>";
+    echo "<h1>Cadastre-se</h1>";
     ?>
 
 
@@ -116,7 +119,7 @@
 
         <div>
             <input type="button" class="modalForm" id="btn-pai" value="Sou Pai/Responsável"/>
-            <input type="button" class="modalForm" id="btn-baba" value="Sou Baba"/>
+            <input type="button" class="modalForm" id="btn-baba" value="Sou Babá"/>
         </div>
 
     </form>
@@ -137,6 +140,7 @@
                     <button class="btn-cancelar">Cancelar</button>
                 </div>
                 </fieldset>
+                
             </form>
     </dialog>
     
@@ -146,7 +150,7 @@
         </div>
         <div>
             <button id="btn-sim">Sim</button>
-            <button id="btn-nao">Não</button>
+            <button class="corbotn" id="btn-nao">Não</button>
         </div>
     </dialog>
 

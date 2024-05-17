@@ -42,7 +42,7 @@
                         <input type="email" name="email" placeholder="Digite seu Email" required>
                         <input class="passw_area" type="password" name="senha" placeholder="Digite sua Senha" required>
                         
-                        <p>Não possui conta? <a href="">Cadastre-se</a><p>
+                        <p>Não possui conta? <a href="src/cadastro/cadastro.php">Cadastre-se</a><p>
 
                         <button class="btn_login" name="SendLogin">Logar</button>
                     </form>
