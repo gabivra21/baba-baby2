@@ -1,124 +1,331 @@
+/* Reset básico de margens, padding e box-sizing para garantir consistência */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;   
+}
+
+/* Classe para esconder elementos */
+.hide {
+    display: none;
+}
+
+/* Início da Navbar (barra de navegação) */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
     background-color: #EFCFAA;
-    height: 50px;
-}
-
-.barra {
-    margin-left: auto;
     display: flex;
-    justify-content: flex-end;
-    width: 30px;
-    height: 30px;
-    margin-top: 9px;
-    margin-right: 12px;
+    justify-content: space-between;
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    position: sticky;
+    box-shadow: 0px 1px 4px 1px rgba(150, 150, 150);
+    padding: 5px 15px;
+    top: 0;
+    z-index: 1;
 }
 
-.barra:hover {
-    border-color: #999;
-}
-
-.boxsearch {
+/* Conteúdo da Navbar */
+.navbar .navbar-content {
     display: flex;
-    justify-content: center;
-    width: 1500px;
-    height: 70px;
-    margin-right: 5px;
-    gap: .1%;
-    margin-top: 65px;
     align-items: center;
 }
 
-.caixa {
-    border-radius: 20px;
-    background-color: #dfdadac8;
-    border: 1px solid #ccc; 
-    padding: 10px 15px;
-    width: 500px;
-    height: 20px;
+/* Ícone de barras da Navbar */
+.navbar .bars {
+    margin-right: 25px;
+    align-items: center;
+    cursor: pointer;
+} 
+
+/* Logo na Navbar */
+.logo-img {
+    width: 120px;
+}
+/* Fim da Navbar */
+
+/* Início do conteúdo e Sidebar */
+.content .sidebar {
+    background-color: #d9d9d9;
+    height: calc(100vh - 60px); /* Altura ajustada para considerar a navbar */
+    width: 60px;
+    position: sticky;
+    top: 60px; /* Posição fixa abaixo da navbar */
+    overflow: auto;
+    box-shadow: 0 1px 4px 1px black;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: 0.3s width ease-in-out; /* Transição suave para alteração de largura */
+    flex-shrink: 0;
 }
 
-.caixa:hover {
-    border-color: #999;
+/* Sidebar em dispositivos menores */
+@media(max-width: 768px) {
+    .content .sidebar {
+        width: 60px;
+        z-index: 1;
+        width: 0;
+    }
 }
 
-.botao {
-    border-radius: 30px; 
-    background-color: #dfdadac8; 
-    border: 1px solid #ccc; 
-    padding: 10px 15px;
-    height: 42px;
+/* Efeito de expansão da Sidebar ao passar o mouse */
+.content .sidebar:hover,
+.content .sidebar.active {
+    width: 250px;
 }
 
-.botao:hover {
-    border-color: #999;
-}
-
-h1 {
-    text-align: center; 
-    font-family: "Calibri", sans-serif; 
-    font-size: 35px;
-    color: #EFCFAA;
-}
-
-h3 {
-    text-align: center; 
-    font-family: "Calibri", sans-serif; 
-    font-size: 35px;
-    color: #EFCFAA;
-    margin-top: 80px;
-}
-
-.main{
+/* Estilos para links na Sidebar */
+.sidebar .sidebar-nav {
+    text-decoration: none;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 16px;
 }
 
-.card {
-    margin: 45px;
-    margin-bottom: -10px;
-    background-color: #EFCFAA;
-    width: 200px;
-    height: 390px;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
-    margin-top: 7px;
+.sidebar a {
+    color: rgb(0, 0, 0);
 }
 
-.card:hover {
-    border-color: #999;
+/* Efeito hover para links na Sidebar */
+.sidebar a:hover {
+    color: #000000;
+    background-color: #cacaca;    
 }
 
-.card>img {
-    width: 100%;
-    height: 180px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+/* Estilo para o link ativo na Sidebar */
+.sidebar .sidebar-nav.active {
+    background-color: #cacaca;
+    color: #696969;
 }
 
-p {
-    text-align: center;
-    font-family: "Calibri", sans-serif;
-    font-size: 24px;
-    color: rgb(244, 236, 236);
-}
-
-p1 {
-    text-align: center;
-    font-family: "Calibri", sans-serif;
-    color: #EFCFAA;
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-}
-
-.a {
+/* Indicador de link ativo na Sidebar */
+.sidebar .sidebar-nav.active::before {
+    content: "";
     position: absolute;
-    bottom: 0;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #EFCFAA;
+}
+
+/* Ícones na Sidebar */
+.sidebar-nav .icon {
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+/* Estilo geral do conteúdo */
+.content {
+    display: flex;
+}
+
+/* Wrapper do conteúdo principal */
+.content .wrapper {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+} 
+
+/* Container do formulário de pesquisa */
+.pesquisa-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+/* Campo de entrada do formulário de pesquisa */
+.pesquisa-container input {
+    width:300px;
+    border-color: #d9d9d9;
+    border-radius: 10px;
+}
+
+/* Botão de pesquisa */
+.pesquisa-container button {
+    width: 70px;
+    height: 30px;
+    margin-left: 20px;
+    background: #cacaca;
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/* Container para os resultados */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo dos cards de babás */
+.card {
+    width: 325px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+/* Efeito hover para os cards */
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Imagem dos cards */
+.card-img {
+    width: 100%;
+}
+
+.card-img img {
+    width: 100%;
+    height: auto;
+}
+
+/* Conteúdo dos cards */
+.content-card {
+    padding: 20px;
+}
+
+.content-card h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+/* Lista de informações nos cards */
+.content-card li {
+    font-size: 16px;
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+
+/* Botões nos cards */
+.content-card button {
+    width: 70px;
+    height: 30px;
+    background: #cacaca;
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.content-card button:hover {
+    background-color: #9b9b9b;
+    transition: 0.3s ease;
+}
+
+/* Fade e modal com transição */
+.fade, .modal {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Background do fade */
+.fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Modal centralizado */
+.modal {
+    position: fixed;
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background-color: #fff;
+    width: 1000px;
+    max-width: 90%;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+}
+
+/* Cabeçalho do modal */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}   
+
+/* Estilo dos títulos */
+.modal-header ul{
+    list-style: none;
+}
+
+.modal-header ul .nome{
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.modal-header button{
+    width:30px;
+    height:29px;
+    background: #cacaca;
+    color: #000;
+    font-size: medium;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.formProposta{
+    margin-top: 10px;
+    border-top: 1px solid #ccc; /* Adiciona uma borda inferior */
+}
+
+.modal-body button{
+    width: 100px;
+    height: 30px;
+    background: #cacaca;
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.modal-body button:hover {
+    background-color: #9b9b9b;
+    transition: 0.3s ease;
+}
+
+/* Estilo do formulário */
+.dynamicForm{
+    padding-top: 15px;
+}
+
+/* Botão de enviar */
+.dynamicForm button{
+    margin-top: 10px;
+    width:60px;
+    height: 30px;
+    background: #cacaca;
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.dynamicForm button:hover {
+    background-color: #cfbfaf;
+    transition: 0.3s ease;
 }

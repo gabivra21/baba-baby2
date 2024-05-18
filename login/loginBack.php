@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // Se o usuário for um administrador, redireciona para uma página específica
                 if ($isAdmin == 1) {
-                    header("Location: menuAdmin.php");
+                    header("Location: menuAdmin????.php");
                     exit();
                 }
 
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 } else {
                     // Se o ID não estiver presente em baba, redireciona para página menu-pais
-                    header("Location: menuPais.php");
+                    header("Location:".BASE_URL_PAIS);
                     exit();
                 }
             } else {

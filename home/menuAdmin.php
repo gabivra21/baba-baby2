@@ -17,6 +17,6 @@ if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
     </head>
     <body>
         <h1>Bem-vindo, admin <?php echo $_SESSION['nome']; ?></h1>
-        <a href="sair.php">Sair</a>
+        <a href="login/sair.php">Sair</a>
     </body>
 </html>

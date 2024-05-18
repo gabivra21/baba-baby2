@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BabáBaby</title>
     <link rel="shortcut icon" type="imagex/png" href="imgIndex/bbbyynew.ico">
-    <link rel="stylesheet" href="home\style.css">
+    <link rel="stylesheet" href="login/style.css">
 </head>
 <body>
     <div class="navbar">
@@ -46,7 +46,7 @@
                     <button id="close-modal">x</button>
                 </div>
                 <div id="modal-body">
-                    <form method="POST" action="home\loginBack.php">
+                    <form method="POST" action="login\loginBack.php">
                         <!-- Exibir a mensagem de erro aqui -->
                         <?php if(isset($_SESSION['msgErro'])): ?>
                         <div class="msg_erro"><?php echo $_SESSION['msgErro']; ?></div>
