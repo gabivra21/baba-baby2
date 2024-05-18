@@ -1,63 +1,38 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const userTypeRadios = document.querySelectorAll('input[name="userType"]');
+    const formPai = document.getElementById('formPai');
+    const formBaba = document.getElementById('formBaba');
 
-//COMPONENTES
-
-const btnSouPai = document.getElementById("btn-pai");
-const btnSouBaba = document.getElementById("btn-baba");
-const btnCancelar = document.getElementsByClassName("btn-cancelar");
-const btnSim = document.getElementById("btn-sim");
-const btnNao = document.getElementById("btn-nao");
-const modalSouPai = document.getElementById("modal-pai");
-const modalSouBaba = document.getElementById("modal-baba");
-const modalCancelar = document.getElementById("modal-cancelar");
-const btnModais = document.getElementsByClassName("modalForm");
-
-//FUNÇÕES
-
-btnSouPai.onclick = () => {
-    modalSouPai.showModal();
-}
-
-btnSouBaba.onclick = () => {
-    modalSouBaba.showModal();
-}
-
-for (var i = 0; i < btnCancelar.length; i++) {
-    btnCancelar[i].addEventListener('click', () => {
-        modalCancelar.showModal();
-    })
-}
-
-btnSim.onclick = () => {
-    modalCancelar.close();
-    document.querySelector("dialog[open]").close();
-}
-
-btnNao.onclick = () => {
-    modalCancelar.close();
-}
-
-$(document).ready(() => {
-    for (var i = 0; i < btnModais.length; i++) {
-        console.log("ESTOU AQUI")
-        btnModais[i].addEventListener('click', () => {
-            var form = new FormData($("#formUsuario")[0]);
-            $.ajax({
-                url: "backend/cadastrarUsuario.php",
-                type: "post",
-                dataType: "json",
-                cache: false,
-                processData: false,
-                contentType: false,
-                data: form,
-                timeout: 8000,
-                success: (result) => {
-                   console.log(form.values())
-                }
-            });
+    userTypeRadios.forEach(radio => {
+        radio.addEventListener('change', (event) => {
+            switch (event.target.value) {
+                case 'pai':
+                    formPai.classList.remove('hidden');
+                    formBaba.classList.add('hidden');
+                    formPai.querySelectorAll('input').forEach(input => input.required = true);
+                    formBaba.querySelectorAll('input').forEach(input => input.required = false);
+                    break;
+                case 'baba':
+                    formPai.classList.add('hidden');
+                    formBaba.classList.remove('hidden');
+                    formBaba.querySelectorAll('input').forEach(
+                        input => input.type == 'checkbox' ? input.required = false : input.required = true
+                    );
+                    formPai.querySelectorAll('input').forEach(input => input.required = false);
+                    break;
+                default:
+                    formPai.classList.add('hidden');
+                    formBaba.classList.add('hidden');
+                    formBaba.querySelectorAll('input').forEach(input => input.required = true);
+                    formPai.querySelectorAll('input').forEach(input => input.required = true);
+                    break;
+            }
         });
+    });
+
+    // Trigger the change event on the checked radio button to set the initial state
+    const checkedRadio = document.querySelector('input[name="userType"]:checked');
+    if (checkedRadio) {
+        checkedRadio.dispatchEvent(new Event('change'));
     }
 });
-
-
-
-

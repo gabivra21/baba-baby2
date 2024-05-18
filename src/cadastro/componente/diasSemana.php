@@ -1,6 +1,12 @@
 <?php
 
-include '../database/configu.php';
+//include '../../../conn.php';
+$db_name = 'babababy_';
+$db_host = 'localhost';
+$db_port = '3306';
+$db_user = 'root';
+$db_password = '';
+$pdo = new PDO("mysql:host=$db_host;port=$db_port;dbname=$db_name", $db_user, $db_password);
 
 //OBTEM DIAS DA SEMANA
 $querySQL = "SELECT * FROM dia";
@@ -14,7 +20,7 @@ $dias = $queryPreparada->fetchAll();
     <label for="diasSemana">Tenho disponibilidade nos dias: </label>
     <?php foreach ($dias as $dia): ?>
         <div id='<?= $dia['idDia']; ?>'>
-            <label for=""><?= $dia['nome']; ?></label>
+            <span for=""><?= $dia['nome']; ?></span>
             <input type="checkbox" name="dia[]" value="<?= $dia['idDia']; ?>" /><br>
         </div>
     <?php endforeach; ?>
