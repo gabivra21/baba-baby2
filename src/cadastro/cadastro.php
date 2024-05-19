@@ -12,7 +12,7 @@
     <div class="logo-container">
         <img src="../../imgIndex/bbbyynew.ico" alt="Logo" class="logo">
     </div>
-    <form id="formUsuario" method="POST" action="backend/cadastrarUsuario.php">
+    <form id="formUsuario" method="POST" action="backend/cadastrarUsuario.php" enctype ="multipart/form-data">
         <p>Bem-vindo à BabáBaby </p>
         <div id="escolhaPerfil">
             <fieldset>
@@ -69,6 +69,7 @@
                 <label><strong>Email:</strong>
                     <input class="required" id="email" type="email" name="email" placeholder="Email"
                         title="Email entre 10 e 50 letras, deve conter @." required oninput="emailValidate()" />
+                        <span class="span-required">Digite um e-mail válido.</span>
                 </label>
                 <label>
                     <!--pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[^\da-zA-Z]).{8,16}$" regra da senha, por algum motivo estava dando problema-->
