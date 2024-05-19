@@ -16,7 +16,7 @@ if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
     <!-- Favicon -->
     <link rel="shortcut icon" type="imagex/png" href="imgIndex">
     <!-- Estilo customizado -->
-    <link rel="stylesheet" href="home/menuPais.css">
+    <link rel="stylesheet" href="pais/menuPais.css">
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- Flatpickr para seleção de datas -->
@@ -31,6 +31,9 @@ if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
                 <i class="fa-solid fa-bars" style="color: #000000;"></i>
             </div>
             <img src="imgIndex/Babababypng.png" alt="Logo BabáBaby" class="logo-img">
+        </div>
+        <div class="navbar-ola">
+            <p>Olá, <?php echo $_SESSION['nome']; ?></p>
         </div>
     </nav>
 

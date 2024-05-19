@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // Se o usuário for um administrador, redireciona para uma página específica
                 if ($isAdmin == 1) {
-                    header("Location: menuAdmin????.php");
+                    header("Location:".BASE_URL_ADMIN);
                     exit();
                 }
 
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Se o mesmo ID estiver presente em baba, redireciona para página menu-babá
                 if ($result['total'] > 0) {
                     // Define a variável de sessão com o ID do usuário
-                    header("Location: menuBaba.php");
+                    header("Location:".BASE_URL_BABA);
                     exit();
 
                 } else {

@@ -2,9 +2,11 @@
 session_start(); // Inicia a sessão
 define("BASE_URL","http://localhost/baba-baby2/");
 define("BASE_URL_INDEX","http://localhost/baba-baby2/index.php");
-define("BASE_URL_ PAIS","http://localhost/baba-baby2/menuPais.php");
+define("BASE_URL_PAIS","http://localhost/baba-baby2/menuPais.php");
+define("BASE_URL_BABA","http://localhost/baba-baby2/menuBaba.php");
+define("BASE_URL_ADMIN","http://localhost/baba-baby2/menuAdmin.php");
 
-$db_name = 'babababy_';
+$db_name = 'teste';
 $db_host = 'localhost';
 $db_port = '3306';
 $db_user = 'root';
