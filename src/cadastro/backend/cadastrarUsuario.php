@@ -17,7 +17,7 @@ function salvarFoto(): ?string {
     if(isset($_FILES['foto'])){
         $foto = $_FILES['foto'];
 
-        $pasta = "src/cadastro/arquivos/";
+        $pasta = "C:\\xampp\\htdocs\\baba-baby2\\baba-baby2\\src\\cadastro\\arquivos\\";
         $nomeDaFoto = $foto['name'];
         $extensao = strtolower(pathinfo($nomeDaFoto, PATHINFO_EXTENSION));
 
