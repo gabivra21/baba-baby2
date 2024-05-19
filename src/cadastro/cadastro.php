@@ -34,13 +34,18 @@
                     <strong>Nome:</strong>
                     <input required class="required" name="name" id="name" type="text" placeholder="Nome"
                         oninput="nameValidate()">
+                        <span class="span-required"> Digite um nome com no mínimo 3 letras </span>
+
                 </label>
                 <label><strong>Sobrenome:</strong>
                     <input name="sobrenome" id="sobrenome" type="text" placeholder="Sobrenome" required>
                 </label>
                 <label id="dt">
                     <strong>Data de Nascimento:</strong>
-                    <input type="date" id="data" name="dtaNascimento" oninput="validarData()" required />
+                    <input class="required" type="date" id="data" name="dtaNascimento" oninput="validarData()" required />
+                    <span class="span-required"> Digite o seu ano real de nascimento.</span>
+
+
                 </label>
                 <label>
                     <strong>CPF:</strong>
@@ -62,8 +67,8 @@
                     <input name="foto" id="foto" type="file" required>
                 </label>
                 <label><strong>Email:</strong>
-                    <input id="email" type="email" name="email" placeholder="Email"
-                        title="Email entre 10 e 50 letras, deve conter @." required />
+                    <input class="required" id="email" type="email" name="email" placeholder="Email"
+                        title="Email entre 10 e 50 letras, deve conter @." required oninput="emailValidate()" />
                 </label>
                 <label>
                     <!--pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[^\da-zA-Z]).{8,16}$" regra da senha, por algum motivo estava dando problema-->

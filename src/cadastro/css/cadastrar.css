@@ -326,3 +326,8 @@ dialog button.btn-cancelar {
     border: 1px solid #d894d4;
     border-radius: 5px;
 }
+
+.span-required{
+    display: none;
+    color: red;
+}
