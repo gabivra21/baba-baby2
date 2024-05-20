@@ -86,3 +86,20 @@ const spans = document.querySelectorAll('.span-required');
             spans[index].style.display = "none";
 
         }
+
+        /*function verificarCPFCadastrado() {
+            var cpf = document.getElementById('cpf').value;
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'verificar_cpf.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var resposta = xhr.responseText;
+                    if (resposta === 'true') {
+                        alert('Este CPF já está cadastrado.');
+                    } else {
+                        alert('Este CPF ainda não foi cadastrado.');
+                    }
+                }
+            };
+            xhr.send('cpf=' + cpf);}*/
