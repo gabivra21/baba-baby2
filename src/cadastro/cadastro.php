@@ -138,6 +138,7 @@
         <a href="/baba-baby2/">Cancelar</a>
     </form>
     <script src="js/cadastrar.js"></script>
+    
 </body>
 
 </html>
