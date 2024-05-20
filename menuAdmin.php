@@ -36,7 +36,8 @@ include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
                 <a href="menuAdmin.php" class="sidebar-nav active"><i class="icon fa-solid
                     fa-house" style="color: #000000;"></i><span>Início</span></a>
 
-                <a href="admin\listaUsuario.php" class="sidebar-nav"><img src="imgIndex/lista.png" img weight="27px" img height="26px" class="listaimg"><span>Listar</span></a>      
+                <a href="admin\listaUsuario.php" class="sidebar-nav"><i class="icon fa-solid 
+                    fa-list-ul" style="color: #000000;"></i><span>Listar</span></a>
                     
                 <a href="login/sair.php" class="sidebar-nav"><i class="icon fa-solid 
                     fa-right-from-bracket" style="color: #e90c0c;"></i><span>Sair</span></a> 
@@ -47,13 +48,13 @@ include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
             <div class="wrapper">
                 <div class="row">
                     <a href="admin\listaUsuario.php" class="box box-first">
-                        <span><img src="imgIndex/user.png" img width="25px"></span>
+                        <span class="fa-solid fa-users"></span>
                         <span></span>
                         <span>Usuários</span>
                     </a>
                 
                     <a href="admin\verificacao.php" class="box box-second">
-                        <span><img src="imgIndex/check.png"></span>
+                        <span class="fa-regular fa-address-card"></span>
                         <span></span>
                         <span>Verificação</span>
                     </a>

@@ -43,7 +43,7 @@
                                 <th class="list-head-content">Email</th>
                                 <th class="list-head-content">Telefone</th>
                                 <th class="list-head-content">Cidade</th>
-                                <th class="list-head-verificar"></th>
+                                <th class="list-head-content">Ações</th>
                             </tr>
 
                         </thead>
