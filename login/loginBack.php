@@ -1,5 +1,5 @@
 <?php
-require 'C:\xampp\htdocs\baba-baby2\conn.php';
+require 'C:\\xampp\\htdocs\\baba-baby2\\conn.php';
 
 // Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
