@@ -1,10 +1,10 @@
 <?php
-
 include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
 
-if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
+if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
     $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
     header("Location: index.php");
+    exit();
 }
 ?>
 
@@ -22,6 +22,7 @@ if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
     <!-- Flatpickr para seleção de datas -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -51,24 +52,23 @@ if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
         <div class="wrapper">
             <!-- Formulário de Pesquisa -->
             <form class="pesquisa-container" action="#" method="GET">
-                <input class="inp-buscar" name="busca" placeholder=" Digite um nome ou cidade" type="text">
+                <input class="inp-buscar" name="busca" placeholder="Digite um nome ou cidade" type="text">
                 <button type="submit" class="btn-pesquisa">Buscar</button>
             </form>
 
             <!-- Container dos Resultados -->
             <div class="container">
                 <?php
-
                 if (isset($_GET['busca']) && !empty($_GET['busca'])) {
                     $pesquisa = $_GET['busca'];
                     $param = '%' . $pesquisa . '%';
-                    
+
                     $querySQL = "SELECT DISTINCT b.idBaba, b.tempoExp, b.sobre, b.valor,
                         u.nome, u.cidade
                         FROM baba AS b
                         LEFT JOIN usuario AS u ON b.pk_idUsuario = u.idUsuario
                         WHERE u.nome LIKE :pesquisa OR u.cidade LIKE :pesquisa";
-                        
+
                     $queryPreparada = $pdo->prepare($querySQL);
                     $queryPreparada->bindParam(':pesquisa', $param, PDO::PARAM_STR);
                     $queryPreparada->execute();
@@ -78,7 +78,7 @@ if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
                         u.nome, u.cidade
                         FROM baba AS b
                         LEFT JOIN usuario AS u ON b.pk_idUsuario = u.idUsuario";
-                    
+
                     $queryPreparada = $pdo->prepare($querySQL);
                     $queryPreparada->execute();
                     $listaBaba = $queryPreparada->fetchAll(PDO::FETCH_ASSOC);
@@ -94,7 +94,7 @@ if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
                         <div class="card-img">
                             <img src="">
                         </div>
-    
+
                         <!-- Conteúdo do Card -->
                         <div class="content-card">
                             <h3><?=$baba['nome'];?></h3>
@@ -131,9 +131,10 @@ if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
                             <!-- Formulário de Proposta -->
                             <button class="bnt-openProposta">Criar Proposta</button>
                             <div class="formProposta hide">
-                                <form class="dynamicForm">
-                                    <label for="data">Quando:</label>
-                                    <input type="text" class="data" name="data" required>
+                                <form class="dynamicForm" action="" method="POST">
+                                    <input type="hidden" name="" value="">
+                                    <label for="dateInput<?=$baba['idBaba']?>">Quando:</label>
+                                    <input type="text" id="dataInput<?=$baba['idBaba']?>" class="data" name="dateInput" required>
 
                                     <label for="turno">Turno:</label>
                                     <select name="turno" required>
@@ -141,7 +142,8 @@ if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
                                         <option value="2">Tarde</option>
                                         <option value="3">Noite</option>
                                     </select><br>
-                                    <button type="submit">Enviar</button>
+                                    <button type="button" onclick="calculateDayOfWeek(<?=$baba['idBaba']?>)">Enviar</button>
+                                    <div id="result<?=$baba['idBaba']?>"></div>
                                 </form>
                             </div>  
                         </div>
@@ -157,10 +159,9 @@ if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
                 ?>
             </div>
             <!-- Fim do Conteúdo de Pesquisa -->
-        
+
         </div>
         <!-- Fim do Conteúdo Principal -->
-
     </div>
 
     <!-- Scripts -->
@@ -212,7 +213,28 @@ if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
                 minDate: "today" // Bloqueia datas anteriores à data atual
             });
         });
-    </script>
 
+        function calculateDayOfWeek(idBaba) {
+            const dateInput = document.getElementById('dateInput' + idBaba).value;
+            const datePattern = /^\d{4}-\d{2}-\d{2}$/; // Regex para validar o formato AAAA-MM-DD
+
+            if (datePattern.test(dateInput)) {
+                // Dividir a string da data em componentes de ano, mês e dia
+                const [year, month, day] = dateInput.split('-').map(Number);
+
+                // Criar um objeto Date com componentes específicos para evitar discrepâncias de fuso horário
+                const date = new Date(Date.UTC(year, month - 1, day));
+                if (!isNaN(date)) {
+                    const daysOfWeek = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+                    const dayOfWeek = daysOfWeek[date.getUTCDay()];
+                    document.getElementById('result' + idBaba).innerText = `O dia da semana é: ${dayOfWeek}`;
+                } else {
+                    document.getElementById('result' + idBaba).innerText = 'Data inválida. Por favor, insira uma data no formato AAAA-MM-DD.';
+                }
+            } else {
+                document.getElementById('result' + idBaba).innerText = 'Formato inválido. Por favor, insira uma data no formato AAAA-MM-DD.';
+            }
+        }
+    </script>
 </body>
 </html>
