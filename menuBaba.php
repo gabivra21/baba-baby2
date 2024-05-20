@@ -2,10 +2,10 @@
 
 include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
 
-if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
-    $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
-    header("Location: index.php");
-}
+//if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
+  //  $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
+    //header("Location: index.php");
+//}
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
     <head>
         <meta charset="UTF-8">
         <title>Menu Baba</title>
-        <link rel="shortcut icon" type="imagex/png" href="imgIndex/bbbyynew.ico">
+        <link rel="shortcut icon" type="imagex/png" href="../imgIndex/bbbyynew.ico">
         <link rel="stylesheet" href="baba/menuBaba.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
      </head>
@@ -30,30 +30,25 @@ if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
                 <p>Olá, <?php echo $_SESSION['nome']; ?></p>
             </div>
         </nav>
-        <!-- Fim Navbar -->
 
-        <!-- Início Conteúdo -->
         <div class="content">
-            <!-- Início Sidebar -->
             <div class="sidebar">
                 <a href="menuBaba.php" class="sidebar-nav active"><i class="icon fa-solid
                     fa-house" style="color: #000000;"></i><span>Início</span></a>
 
-                <a href="baba\dadosBaba.php" class="sidebar-nav"><i class="icon fa-solid 
+                <a href="baba/dadosBaba.php" class="sidebar-nav"><i class="icon fa-solid 
                     fa-user" style="color: #000000;"></i><span>Dados</span></a>     
                 
-                <a href="baba\servicosBaba.php" class="sidebar-nav"><i class="icon fa-solid 
+                <a href="baba/servicosBaba.php" class="sidebar-nav"><i class="icon fa-solid 
                     fa-clock-rotate-left" style="color: #000000;"></i><span>Serviços</span></a>        
                     
-                <a href="login\sair.php" class="sidebar-nav"><i class="icon fa-solid 
+                <a href="login/sair.php" class="sidebar-nav"><i class="icon fa-solid 
                     fa-right-from-bracket" style="color: #e90c0c;"></i><span>Sair</span></a>       
             </div>
-            <!-- Fim Sidebar -->
 
-            <!-- Início do conteúdo do administrativo -->
             <div class="wrapper">
                 <div class="row">
-                    <a href="baba\propostasBaba.php" class="box box-first">
+                    <a href="baba/propostasBaba.php" class="box box-first">
                         <span class="fa-regular fa-handshake"></span>
                         <span></span>
                         <span>Propostas</span>

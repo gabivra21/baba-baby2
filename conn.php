@@ -7,14 +7,10 @@ define("BASE_URL_BABA","http://localhost/baba-baby2/menuBaba.php");
 define("BASE_URL_ADMIN","http://localhost/baba-baby2/menuAdmin.php");
 
 $db_name = 'babababy_';
-<<<<<<< HEAD
 $db_host = '127.0.0.1';
-=======
-$db_host = 'localhost';
->>>>>>> 463a69502484bf2323b7105e47dca6471a27a8b0
 $db_port = '3306';
 $db_user = 'root';
-$db_password = 'PUC@1234';
+$db_password = '';
 
 try
 {

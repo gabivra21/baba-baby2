@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Menu Admin</title>
-        <link rel="shortcut icon" type="imagex/png" href="imgIndex/bbbyynew.ico">
-        <link rel="stylesheet" href="baba/menuBaba.css">
+        <link rel="shortcut icon" type="imagex/png" href="../imgIndex/bbbyynew.ico">
+        <link rel="stylesheet" href="menuBaba.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
      </head>
     <body>
@@ -14,7 +14,7 @@
                 <div class="bars">
                     <i class="fa-solid fa-bars" style="color: #000000;"></i>
                 </div>
-                <img src="imgIndex/Babababypng.png" alt="Logo BabáBaby" class="logo-img">
+                <img src="../imgIndex/Babababypng.png" alt="Logo BabáBaby" class="logo-img">
             </div>
         </nav>
         <!-- Fim Navbar -->
@@ -23,17 +23,17 @@
         <div class="content">
             <!-- Início Sidebar -->
             <div class="sidebar">
-                <a href="menuBaba.php" class="sidebar-nav"><i class="icon fa-solid
+                <a href="../menuBaba.php" class="sidebar-nav"><i class="icon fa-solid
                     fa-house" style="color: #000000;"></i><span>Início</span></a>
 
-                <a href="baba\dadosBaba.php" class="sidebar-nav active"><i class="icon fa-solid 
+                <a href="dadosBaba.php" class="sidebar-nav active"><i class="icon fa-solid 
                     fa-user" style="color: #000000;"></i></i><span>Dados</span></a>
                     
-                <a href="baba\servicosBaba.php" class="sidebar-nav"><i class="icon fa-solid 
+                <a href="servicosBaba.php" class="sidebar-nav"><i class="icon fa-solid 
                     fa-clock-rotate-left" style="color: #000000;"></i><span>Serviços</span></a>        
                             
 
-                <a href="index.php" class="sidebar-nav"><i class="icon fa-solid 
+                <a href="../index.php" class="sidebar-nav"><i class="icon fa-solid 
                     fa-right-from-bracket" style="color: #e90c0c;"></i></i><span>Sair</span></a>        
                 
             </div>
