@@ -306,3 +306,35 @@ body {
 .hidden-row {
     background-color:#EFCFAA;   
 }
+
+.botao-adicionar {
+    background-color: #29c0c3;
+    color: #ffffff;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all .3s ease;
+}
+
+.botao-adicionar:hover {
+    background-color: #0c7f8a;
+    color: #ffffff;
+}
+
+.botao-remover {
+    background-color: #c95038;
+    color: #ffffff;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all .3s ease;
+}
+
+.botao-remover:hover {
+    background-color: #82160a;
+    color: #ffffff;
+}

@@ -60,7 +60,7 @@ include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
                         <span>Avaliações</span>
                     </a>
 
-                    <a href="#" class="box box-third">
+                    <a href="baba/disponibilidade.php" class="box box-third">
                         <span class="fa-regular fa-calendar"></span>
                         <span></span>
                         <span>Disponibilidade</span>
