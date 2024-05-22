@@ -1,11 +1,13 @@
 <?php
 
 include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
+session_start();
 
-//if((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))){
-  //  $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
-    //header("Location: index.php");
-//}
+if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
+    $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
+    header("Location: index.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>

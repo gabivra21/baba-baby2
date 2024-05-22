@@ -1,6 +1,7 @@
 <?php
 
 require "C:\\xampp\\htdocs\\baba-baby2\conn.php";
+session_start();
 //$db_name = 'babababy_';
 //$db_host = 'localhost';
 //$db_port = '3306';
