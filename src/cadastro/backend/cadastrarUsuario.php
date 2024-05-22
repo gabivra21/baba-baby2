@@ -1,6 +1,6 @@
 <?php
 
-require "C:\xampp\htdocs\baba-baby2\conn.php";
+require "C:\\xampp\\htdocs\\baba-baby2\conn.php";
 //$db_name = 'babababy_';
 //$db_host = 'localhost';
 //$db_port = '3306';

@@ -1,6 +1,15 @@
 <?php
 require 'C:\\xampp\\htdocs\\baba-baby2\\conn.php';
 
+session_start(); // Inicia a sessão
+define("BASE_URL","http://localhost/baba-baby2/");
+define("BASE_URL_INDEX","http://localhost/baba-baby2/index.php");
+define("BASE_URL_PAIS","http://localhost/baba-baby2/menuPais.php");
+define("BASE_URL_BABA","http://localhost/baba-baby2/menuBaba.php");
+define("BASE_URL_ADMIN","http://localhost/baba-baby2/menuAdmin.php");
+
+
+
 // Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se o email e a senha foram enviados
