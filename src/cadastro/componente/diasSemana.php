@@ -1,6 +1,6 @@
 <?php
 
-include 'C:\xampp\htdocs\baba-baby2\conn.php';
+include 'C:\\xampp\\htdocs\\baba-baby2\\conn.php';
 //$db_name = 'babababy_';
 //$db_host = '127.0.0.1';
 //$db_port = '3306';
