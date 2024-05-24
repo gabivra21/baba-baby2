@@ -44,41 +44,9 @@
                                 <th class="list-head-content">Cidade</th>
                                 <th class="list-head-content">Tipo</th>
                             </tr>
-
                         </thead>
                         <tbody class="list-body">
-                            <tr>
-                                <td class="list-body-content">1001</td>
-                                <td class="list-body-content">Laura da Silva</td>
-                                <td class="list-body-content">123.456.781-23</td>
-                                <td class="list-body-content">11/05/2000</td>
-                                <td class="list-body-content">laurads@hotmail.com</td>
-                                <td class="list-body-content">(41) 1234-5678</td>
-                                <td class="list-body-content">Curitiba</td>
-                                <td class="list-body-content">Babá</td>
-                            </tr>
-
-                            <tr>
-                                <td class="list-body-content">1002</td>
-                                <td class="list-body-content">Bruno Santos</td>
-                                <td class="list-body-content">123.456.781-24</td>
-                                <td class="list-body-content">02/01/1995</td>
-                                <td class="list-body-content">brunosts@gmail.com</td>
-                                <td class="list-body-content">(49) 1233-5678</td>
-                                <td class="list-body-content">Florianópolis</td>
-                                <td class="list-body-content">Pai</td>
-                            </tr>
-
-                            <tr>
-                                <td class="list-body-content">1003</td>
-                                <td class="list-body-content">Nicole Fatuch</td>
-                                <td class="list-body-content">123.456.781-53</td>
-                                <td class="list-body-content">04/09/2002</td>
-                                <td class="list-body-content">nicfatuch@hotmail.com</td>
-                                <td class="list-body-content">(49) 4423-5688</td>
-                                <td class="list-body-content">Curitiba</td>
-                                <td class="list-body-content">Pai</td>
-                            </tr>
+                        <?php require "componente/listaTodosUsuarios.php"; ?>
                         </tbody>
                     </table>
                 </div>

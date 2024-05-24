@@ -45,47 +45,9 @@
                                 <th class="list-head-content">Cidade</th>
                                 <th class="list-head-content">Ações</th>
                             </tr>
-
                         </thead>
                         <tbody class="list-body">
-                            <tr>
-                                <td class="list-body-content">1001</td>
-                                <td class="list-body-content">Laura da Silva</td>
-                                <td class="list-body-content">123.456.781-23</td>
-                                <td class="list-body-content">11/05/2000</td>
-                                <td class="list-body-content">laurads@hotmail.com</td>
-                                <td class="list-body-content">(41) 1234-5678</td>
-                                <td class="list-body-content">Curitiba</td>
-                                <td class="list-body-content">
-                                    <button type="button" class="botao-verificar">Verificar documentos</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="list-body-content">1010</td>
-                                <td class="list-body-content">Bruna Menezes</td>
-                                <td class="list-body-content">123.456.181-24</td>
-                                <td class="list-body-content">08/08/1998</td>
-                                <td class="list-body-content">brunamnz@gmail.com</td>
-                                <td class="list-body-content">(49) 4233-5678</td>
-                                <td class="list-body-content">São Paulo</td>
-                                <td class="list-body-content">
-                                    <button type="button" class="botao-verificar">Verificar documentos</button>
-                                </td>                            
-                            </tr>
-
-                            <tr>
-                                <td class="list-body-content">1011</td>
-                                <td class="list-body-content">Gabriela Vieira</td>
-                                <td class="list-body-content">123.422.781-53</td>
-                                <td class="list-body-content">08/01/1999</td>
-                                <td class="list-body-content">gabrvieira@icloud.com</td>
-                                <td class="list-body-content">(49) 4223-5688</td>
-                                <td class="list-body-content">Curitiba</td>
-                                <td class="list-body-content">
-                                    <button type="button" class="botao-verificar">Verificar documentos</button>
-                                </td>
-                            </tr>
+                            <?php require "componente/listaBaba.php"; ?>
                         </tbody>
 
                     </table>
