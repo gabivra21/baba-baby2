@@ -1,6 +1,5 @@
 <?php
-
-include 'C:\\xampp\\htdocs\\baba-baby2\\conn.php';
+include 'C:\\xampp\\htdocs\\baba-baby2\conn.php';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
@@ -24,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: verify.php?id=' . $id);
     exit;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -32,13 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificação de Baba</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pagVerificacao.css">
 </head>
 <body>
     <h1>Verificação de Baba</h1>
     <div class="babysitter-info">
-        <img src="<?= htmlspecialchars($babysitter['photo_url']) ?>" alt="Foto da Baba">
-        <h2><?= htmlspecialchars($babysitter['name']) ?></h2>
+        <img src="<?= htmlspecialchars($babysitter['foto']) ?>" alt="Foto da Baba">
+        <h2><?= htmlspecialchars($babysitter['nome']) ?></h2>
         <p>Email: <?= htmlspecialchars($babysitter['email']) ?></p>
         <?php if ($babysitter['verified']): ?>
             <p>Esta baba já foi verificada.</p>

@@ -87,19 +87,33 @@ const spans = document.querySelectorAll('.span-required');
 
         }
 
-        /*function verificarCPFCadastrado() {
-            var cpf = document.getElementById('cpf').value;
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'verificar_cpf.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var resposta = xhr.responseText;
-                    if (resposta === 'true') {
-                        alert('Este CPF já está cadastrado.');
-                    } else {
-                        alert('Este CPF ainda não foi cadastrado.');
-                    }
+        async function verificarCPFExistente(cpf) {
+            const response = await fetch('verificar_cpf.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ cpf: cpf })
+            });
+            const data = await response.json();
+            return data.exists;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('formUsuario');
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const cpfInput = document.getElementById('cpf');
+                const cpf = cpfInput.value;
+
+                const cpfExistente = await verificarCPFExistente(cpf);
+
+                if (cpfExistente) {
+                    alert('CPF já cadastrado.');
+                } else {
+                    alert('CPF não cadastrado. Formulário pode ser submetido.');
+                    // form.submit(); // Descomente esta linha para submeter o formulário
                 }
-            };
-            xhr.send('cpf=' + cpf);}*/
+            });
+        });
+          

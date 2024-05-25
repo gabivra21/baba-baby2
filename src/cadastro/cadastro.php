@@ -50,7 +50,7 @@
                 <label>
                     <strong>CPF:</strong>
                     <input type="text" id="cpf" name="cpf" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}"
-                        title="Formato: XXX.XXX.XXX-XX" required />
+                        title="Formato: XXX.XXX.XXX-XX" required oninput="verificarCPFExistente()" />
                 </label>
                 <label>
                     <strong>Telefone:</strong>
@@ -65,6 +65,7 @@
                 </label>
                 <label><strong>Foto:</strong>
                     <input name="foto" id="foto" type="file" required>
+                    <span>Formato permitido: PNG</span>
                 </label>
                 <label><strong>Email:</strong>
                     <input class="required" id="email" type="email" name="email" placeholder="Email"
