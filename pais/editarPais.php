@@ -45,14 +45,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $telefone = $_POST['telefone'];
     $cep = $_POST['cep'];
+    $ende = $_POST['endereco'];
     $qtdeCrianca = $_POST['qtdeCrianca'];
     $descricao = $_POST['sobre'];
 
     try {
-        $sql_update_user = $pdo->prepare("UPDATE usuario SET email = :email, telefone = :telefone, cidade = :cep WHERE idUsuario = :idUsuario");
+        $sql_update_user = $pdo->prepare("UPDATE usuario SET email = :email, telefone = :telefone, cidade = :cep, endereco = :endereco WHERE idUsuario = :idUsuario");
         $sql_update_user->bindValue(':email', $email, PDO::PARAM_STR);
         $sql_update_user->bindValue(':telefone', $telefone, PDO::PARAM_STR);
         $sql_update_user->bindValue(':cep', $cep, PDO::PARAM_STR);
+        $sql_update_user->bindValue(':endereco', $ende, PDO::PARAM_STR);
         $sql_update_user->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
         $sql_update_user->execute();
 
@@ -81,9 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <nav class="navbar">
         <div class="navbar-content">
-            <div class="bars">
-                <i class="fa-solid fa-bars" style="color: #000000;"></i>
-            </div>
             <img src="../imgIndex/Babababypng.png" alt="Logo BabáBaby" class="logo-img">
         </div>
     </nav>
@@ -135,9 +134,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
 
                         <div class="view-det-adm">
-                            <span class="view-adm-title">CEP: </span>
-                            <input class="preencher" type="text" id="cep" name="cep" value="<?php echo htmlspecialchars($user_data['cidade']); ?>"
-                            title="Sua cidade" />
+                            <span class="view-adm-title">Cidade: </span>
+                            <input class="preencher" type="text" id="cep" name="cep" value="<?php echo htmlspecialchars($user_data['cidade']); ?>" title="Sua cidade" />
+                        </div>
+
+                        <div class="view-det-adm">
+                            <span class="view-adm-title">Endereço: </span>
+                            <input class="preencher" type="text" id="endereco" name="endereco" value="<?php echo htmlspecialchars($user_data['endereco']); ?>" title="Sua cidade" />
                         </div>
 
                         <div class="view-det-adm">

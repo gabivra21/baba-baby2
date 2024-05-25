@@ -20,6 +20,18 @@ $idUsuario = $_SESSION['idUsuario'];
         if ($result) {
             // Se encontrar o idBaba, armazene-o em $idBaba
             $idBaba = $result['idBaba'];
+             $sql_user = $pdo->prepare("SELECT * FROM usuario WHERE idUsuario = :idUsuario");
+             $sql_user->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
+             $sql_user->execute();
+             $user_data = $sql_user->fetch(PDO::FETCH_ASSOC);
+             if($user_data) {
+                $sql_baba = $pdo->prepare("SELECT tempoExp, ref, sobre, valor FROM baba WHERE idBaba = :idBaba");
+                $sql_baba->bindValue(':idBaba', $idBaba, PDO::PARAM_INT);
+                $sql_baba->execute();
+                $user_data_baba = $sql_baba->fetch(PDO::FETCH_ASSOC);
+             } else {
+                echo "Pai sei la";
+             }
         } else {
             // Caso não encontre, você precisa decidir o que fazer, talvez exibir uma mensagem de erro ou redirecionar
             echo "Baba não encontrada para o usuário logado.";
@@ -28,7 +40,6 @@ $idUsuario = $_SESSION['idUsuario'];
         catch (PDOException $e) {
             die("Erro ao processar dados: " . $e->getMessage());
         }
-        
 ?>
 
 <!DOCTYPE html>
@@ -44,9 +55,7 @@ $idUsuario = $_SESSION['idUsuario'];
         <!-- Início Navbar -->
         <nav class="navbar">
             <div class="navbar-content">
-                <div class="bars">
-                    <i class="fa-solid fa-bars" style="color: #000000;"></i>
-                </div>
+
                 <img src="../imgIndex/Babababypng.png" alt="Logo BabáBaby" class="logo-img">
             </div>
         </nav>
@@ -86,52 +95,62 @@ $idUsuario = $_SESSION['idUsuario'];
                     <div class="content-adm">
                         <div class="view-det-adm">
                             <span class="view-adm-title">CPF: </span>
-                            <span class="view-adm-info">145.785.569-99 </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data['cpf']); ?></span>
                         </div>
 
                         <div class="view-det-adm">
                             <span class="view-adm-title">Nome: </span>
-                            <span class="view-adm-info">Julia Costa </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data['nome']), " ", htmlspecialchars($user_data['sobrenome']); ?></span>
                         </div>
 
                         <div class="view-det-adm">
                             <span class="view-adm-title">E-mail: </span>
-                            <span class="view-adm-info">juliacosta@hotmail.com </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data['email']); ?></span>
                         </div>
                         
                         <div class="view-det-adm">
-                            <span class="view-adm-title">Data de Nascimento </span>
-                            <span class="view-adm-info">2005 </span>
+                            <span class="view-adm-title">Data de Nascimento: </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data['dtaNascimento']); ?></span>
+                        </div>
+                    
+                        <div class="view-det-adm">
+                            <span class="view-adm-title">Telefone: </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data['telefone']); ?></span>
+                        </div>
+
+                        <div class="view-det-adm">
+                            <span class="view-adm-title">Telefone para contato: </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data_baba['ref']); ?></span>
+                        </div>
+                        
+                        <div class="view-det-adm">
+                            <span class="view-adm-title">Cidade: </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data['cidade']); ?></span>
+                        </div>
+
+                        <div class="view-det-adm">
+                            <span class="view-adm-title">Endereço: </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data['endereco']); ?></span>
                         </div>
                     
                         <div class="view-det-adm">
                             <span class="view-adm-title">Babá desde: </span>
-                            <span class="view-adm-info">2005 </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data_baba['tempoExp']); ?></span>
                         </div>
 
                         <div class="view-det-adm">
                             <span class="view-adm-title">Sobre: </span>
-                            <span class="view-adm-info">Educada e legal </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data_baba['sobre']); ?></span>
                         </div>
 
                         <div class="view-det-adm">
                             <span class="view-adm-title">Faixa etária: </span>
-                            <span class="view-adm-info">bebe </span>
-                        </div>
-
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">Telefone: </span>
-                            <span class="view-adm-info">(xx) xxxxx-xxxx </span>
-                        </div>
-                        
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">CEP </span>
-                            <span class="view-adm-info">xxxxx-xxx </span>
+                            <span class="view-adm-info"><p>Bebe</p></span>
                         </div>
 
                         <div class="view-det-adm">
                             <span class="view-adm-title">Valor Hora: </span>
-                            <span class="view-adm-info">55 </span>
+                            <span class="view-adm-info"><?php echo "R$", htmlspecialchars($user_data_baba['valor']); ?></span>
                         </div>
                     </div>
                 </div>

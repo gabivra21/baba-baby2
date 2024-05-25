@@ -54,9 +54,6 @@ $idUsuario = $_SESSION['idUsuario'];
         <!-- Início Navbar -->
         <nav class="navbar">
             <div class="navbar-content">
-                <div class="bars">
-                    <i class="fa-solid fa-bars" style="color: #000000;"></i>
-                </div>
                 <img src="../imgIndex/Babababypng.png" alt="Logo BabáBaby" class="logo-img">
             </div>
         </nav>
@@ -113,8 +110,13 @@ $idUsuario = $_SESSION['idUsuario'];
                         </div>
                         
                         <div class="view-det-adm">
-                            <span class="view-adm-title">CEP: </span>
+                            <span class="view-adm-title">Cidade: </span>
                             <span class="view-adm-info"><?php echo htmlspecialchars($user_data['cidade']); ?></span>
+                        </div>
+
+                        <div class="view-det-adm">
+                            <span class="view-adm-title">Endereço: </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data['endereco']); ?></span>
                         </div>
 
                         <div class="view-det-adm">
