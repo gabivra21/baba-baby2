@@ -1,36 +1,3 @@
-<?php
-include_once '../conn.php';
-session_start();
-
-if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
-    $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
-    header("Location: index.php");
-    exit();
-}
-
-$idUsuario = $_SESSION['idUsuario'];
-
-    try {
-        // Passo 1: Obter o idBaba correspondente ao usuário logado
-        $sql_check = $pdo->prepare("SELECT idBaba FROM baba WHERE pk_idUsuario = :idUsuario");
-        $sql_check->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
-        $sql_check->execute();
-        $result = $sql_check->fetch(PDO::FETCH_ASSOC);
-    
-        if ($result) {
-            // Se encontrar o idBaba, armazene-o em $idBaba
-            $idBaba = $result['idBaba'];
-        } else {
-            // Caso não encontre, você precisa decidir o que fazer, talvez exibir uma mensagem de erro ou redirecionar
-            echo "Baba não encontrada para o usuário logado.";
-            exit(); // Saia do script, já que não temos o idBaba
-        } }
-        catch (PDOException $e) {
-            die("Erro ao processar dados: " . $e->getMessage());
-        }
-        
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -76,11 +43,36 @@ $idUsuario = $_SESSION['idUsuario'];
             <div class="wrapper">
                 <div class="row">
                     <div class="top-list">
-                        <span class="title-content">Meus Dados</span>
+                        <span class="title-content">Editar Dados</span>
                         <div class="top-list-right">
-                            <button type="button" onclick="window.location.href='editarBaba.php'" class="botao-editar">Editar Dados</button>
-                            <button type="button" class="botao-remover" id="openModalBtn">Apagar Conta</button>
+                            <button type="button" onclick="window.location.href='editarBaba.php'" class="botao-editar">Confirmar</button>
+                            <button type="button" onclick="window.location.href='dadosBaba.php'" class="botao-remover">Voltar</button>
                         </div>
+
+                        <div class="fade hide"></div>
+                        <div class="modal hide">
+                            <!-- Cabeçalho do Modal -->
+                            <div class="modal-header">
+                                <ul>
+                                    <li class="nome"></li>
+                                    <li>Babá desde: </li>
+                                    <li>Valor/turno: R$</li>
+                                </ul>
+                                <button class="close-modal">x</button>
+                            </div>
+                            <!-- Corpo do Modal -->
+                            <div class="modal-body"> 
+                                <div class="about">
+                                    <h3>Sobre mim:</h3>
+                                </div>
+                                <!-- Disponibilidade da Babá -->
+                                <div class="dispo">
+                                    <h3>Disponibilidade:</h3>
+                                    <p></p><br>
+                                </div>
+                                <!-- Formulário de Proposta -->
+                            </div>
+                            </div>
     
                     </div>
                     <div class="content-adm">
@@ -95,8 +87,10 @@ $idUsuario = $_SESSION['idUsuario'];
                         </div>
 
                         <div class="view-det-adm">
-                            <span class="view-adm-title">E-mail: </span>
-                            <span class="view-adm-info">juliacosta@hotmail.com </span>
+                        <span class="view-adm-title">Email:</span>
+                        
+                        <input class="preencher" id="email" type="email" name="email" placeholder="Email"
+                        title="Email entre 10 e 50 letras, deve conter @." oninput="emailValidate()" />
                         </div>
                         
                         <div class="view-det-adm">
@@ -111,27 +105,36 @@ $idUsuario = $_SESSION['idUsuario'];
 
                         <div class="view-det-adm">
                             <span class="view-adm-title">Sobre: </span>
-                            <span class="view-adm-info">Educada e legal </span>
+                            <input class="preencher" type="text" placeholder="Fale um pouco sobre você" name="sobre"
+                            title="Descreva um pouco sobre você e suas experiências." />
                         </div>
 
                         <div class="view-det-adm">
                             <span class="view-adm-title">Faixa etária: </span>
-                            <span class="view-adm-info">bebe </span>
+                            <select name="fk_idFxEtaria" class="preencher">
+                            <option value="1">Bebê</option>
+                            <option value="2">Criança</option>
+                            <option value="3">Infantojuvenil</option>
+                            <option value="4">Adolescente</option>
+                            </select>
                         </div>
 
                         <div class="view-det-adm">
                             <span class="view-adm-title">Telefone: </span>
-                            <span class="view-adm-info">(xx) xxxxx-xxxx </span>
+                            <input class="preencher" type="text" id="tel" name="telefone" placeholder="(00) 00000-0000" pattern="\d{2}\s?\d{4,5}-?\d{4}"
+                            title="Formato: (XX) XXXX-XXXX ou (XX) XXXXX-XXXX." />
                         </div>
                         
                         <div class="view-det-adm">
-                            <span class="view-adm-title">CEP </span>
-                            <span class="view-adm-info">xxxxx-xxx </span>
+                        <span class="view-adm-title">CEP: </span>
+                            <input class="preencher" type="text" id="cpf" name="cpf" placeholder="000.000.000-00" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}"
+                            title="Formato: XXX.XXX.XXX-XX"/>
                         </div>
 
                         <div class="view-det-adm">
                             <span class="view-adm-title">Valor Hora: </span>
-                            <span class="view-adm-info">55 </span>
+                            <input class="preencher" type="text" placeholder="150,00" name="valor" pattern="\d+(\.\d+)?"
+                            title="Insira um valor em reais (com ponto ao invés de vírgula!)" />
                         </div>
                     </div>
                 </div>
@@ -139,55 +142,6 @@ $idUsuario = $_SESSION['idUsuario'];
             <!-- Fim do conteúdo do administrativo -->
         </div>
         <!-- Fim Conteúdo -->
-
-        <div id="myModal" class="modal">
-        <!-- Conteúdo do modal -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p class ="view-adm-title">Você tem certeza que deseja apagar sua conta?</p>
-            <p>ATENÇÃO: essa ação não pode ser desfeita!</p>
-            <form method="POST" action="deletarBaba.php">
-                <input type="hidden" name="idBaba" value="<?php echo $idBaba; ?>">
-                <input type="hidden" name="idUsuario" value="<?php echo $idUsuario; ?>">
-                <button type="submit" class="botao-editar">Sim, desejo excluir minha conta.</button>
-            </form>
-                <button type="button" onclick="closeModal()" class="botao-remover">Não, não desejo excluir minha conta.</button>
-        </div>
-        </div>
-
-        <script>
-            // Pega o modal
-var modal = document.getElementById("myModal");
-
-// Pega o botão que abre o modal
-var btn = document.getElementById("openModalBtn");
-
-// Pega o elemento <span> que fecha o modal
-var span = document.getElementsByClassName("close")[0];
-
-// Quando o usuário clicar no botão, abre o modal
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// Quando o usuário clicar no <span> (x), fecha o modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-function closeModal() {
-            document.getElementById('myModal').style.display = 'none';
-        }
-
-// Quando o usuário clicar fora do modal, fecha-o
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-        </script>
-
     
 
 

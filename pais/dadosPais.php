@@ -11,23 +11,21 @@ if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
 $idUsuario = $_SESSION['idUsuario'];
 
     try {
-        // Passo 1: Obter o idBaba correspondente ao usuário logado
-        $sql_check = $pdo->prepare("SELECT idBaba FROM baba WHERE pk_idUsuario = :idUsuario");
+        //Passo 1: Obter o idPais correspondente ao usuário logado
+        $sql_check = $pdo->prepare("SELECT idPais FROM pais WHERE pk_idUsuario = :idUsuario");
         $sql_check->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
         $sql_check->execute();
         $result = $sql_check->fetch(PDO::FETCH_ASSOC);
     
-        if ($result) {
-            // Se encontrar o idBaba, armazene-o em $idBaba
-            $idBaba = $result['idBaba'];
+       if ($result) {
+         $idPais = $result['idPais'];
         } else {
-            // Caso não encontre, você precisa decidir o que fazer, talvez exibir uma mensagem de erro ou redirecionar
-            echo "Baba não encontrada para o usuário logado.";
-            exit(); // Saia do script, já que não temos o idBaba
+          echo "Pai não encontrado para o usuário logado.";
+          exit(); // Saia do script, já que não temos o idBaba
         } }
         catch (PDOException $e) {
             die("Erro ao processar dados: " . $e->getMessage());
-        }
+       }
         
 ?>
 
@@ -35,9 +33,9 @@ $idUsuario = $_SESSION['idUsuario'];
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Menu Admin</title>
+        <title>Baba Baby</title>
         <link rel="shortcut icon" type="imagex/png" href="../imgIndex/bbbyynew.ico">
-        <link rel="stylesheet" href="menuBaba.css">
+        <link rel="stylesheet" href="menuPais.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
      </head>
     <body>
@@ -56,19 +54,10 @@ $idUsuario = $_SESSION['idUsuario'];
         <div class="content">
             <!-- Início Sidebar -->
             <div class="sidebar">
-                <a href="../menuBaba.php" class="sidebar-nav"><i class="icon fa-solid
-                    fa-house" style="color: #000000;"></i><span>Início</span></a>
-
-                <a href="dadosBaba.php" class="sidebar-nav active"><i class="icon fa-solid 
-                    fa-user" style="color: #000000;"></i></i><span>Dados</span></a>
-                    
-                <a href="servicosBaba.php" class="sidebar-nav"><i class="icon fa-solid 
-                    fa-clock-rotate-left" style="color: #000000;"></i><span>Serviços</span></a>        
-                            
-
-                <a href="../index.php" class="sidebar-nav"><i class="icon fa-solid 
-                    fa-right-from-bracket" style="color: #e90c0c;"></i></i><span>Sair</span></a>        
-                
+            <a href="../menuPais.php" class="sidebar-nav"><i class="icon fa-solid fa-house" style="color: #000000;"></i><span>Início</span></a>
+            <a href="pais/dadosPais.php" class="sidebar-nav active"><i class="icon fa-solid fa-user" style="color: #000000;"></i><span>Dados</span></a>     
+            <a href="#" class="sidebar-nav"><i class="icon fa-solid fa-clock-rotate-left" style="color: #000000;"></i><span>Propostas</span></a>        
+            <a href="../login/sair.php" class="sidebar-nav"><i class="icon fa-solid fa-right-from-bracket" style="color: #e90c0c;"></i><span>Sair</span></a>
             </div>
             <!-- Fim Sidebar -->
 
@@ -140,14 +129,14 @@ $idUsuario = $_SESSION['idUsuario'];
         </div>
         <!-- Fim Conteúdo -->
 
-        <div id="myModal" class="modal">
+        <div id="myModal" class="modal2">
         <!-- Conteúdo do modal -->
-        <div class="modal-content">
+        <div class="modal2-content">
             <span class="close">&times;</span>
             <p class ="view-adm-title">Você tem certeza que deseja apagar sua conta?</p>
             <p>ATENÇÃO: essa ação não pode ser desfeita!</p>
-            <form method="POST" action="deletarBaba.php">
-                <input type="hidden" name="idBaba" value="<?php echo $idBaba; ?>">
+            <form method="POST" action="deletarPais.php">
+                <input type="hidden" name="idPais" value="<?php echo $idPais; ?>">
                 <input type="hidden" name="idUsuario" value="<?php echo $idUsuario; ?>">
                 <button type="submit" class="botao-editar">Sim, desejo excluir minha conta.</button>
             </form>
