@@ -1,0 +1,59 @@
+.inputImg {
+    display: none;
+}
+
+.viewImg {
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+.containerDocumento {
+    display: block;
+    margin: auto;
+}
+
+.msgAlerta {
+    display: flex;
+    align-items: center;
+}
+
+.msgAlerta span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.inputDocumento {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #AAA;
+    background-color: #EEE;
+    border: 2px dashed;
+    border-radius: 10px;
+    cursor: pointer;
+    aspect-ratio: 16/9;
+    transition: color 300ms ease-in-out;
+}
+
+.inputDocumento:hover {
+    color: #777;
+    background-color: #DDD;
+}
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#btnEnviar {
+    margin-top: 10px;
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    font-size: 14px;
+    color: #FFF;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    background-color: #06bb3c;
+}
