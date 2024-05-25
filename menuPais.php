@@ -29,9 +29,6 @@ if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-content">
-            <div class="bars">
-                <i class="fa-solid fa-bars" style="color: #000000;"></i>
-            </div>
             <img src="imgIndex/Babababypng.png" alt="Logo BabáBaby" class="logo-img">
         </div>
         <div class="navbar-ola">

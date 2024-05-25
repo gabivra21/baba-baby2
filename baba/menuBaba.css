@@ -449,3 +449,36 @@ body {
     margin-top: 50px;
     color: #EFCFAA;
 }
+
+.modal2 {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Ficar fixo na tela */
+    z-index: 1; /* Ficar na frente */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilitar rolagem se necessário */
+    background-color: rgb(0, 0, 0); /* Fundo preto */
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo preto com opacidade */
+}
+
+
+.modal2-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #888;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 15% auto;
+    position: relative;
+}
+
+.modal2-content p {
+    text-align: center;
+    margin: 10px 0;
+}

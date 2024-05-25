@@ -20,6 +20,18 @@ $idUsuario = $_SESSION['idUsuario'];
         if ($result) {
             // Se encontrar o idBaba, armazene-o em $idBaba
             $idBaba = $result['idBaba'];
+             $sql_user = $pdo->prepare("SELECT * FROM usuario WHERE idUsuario = :idUsuario");
+             $sql_user->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
+             $sql_user->execute();
+             $user_data = $sql_user->fetch(PDO::FETCH_ASSOC);
+             if($user_data) {
+                $sql_baba = $pdo->prepare("SELECT tempoExp, ref, sobre, valor FROM baba WHERE idBaba = :idBaba");
+                $sql_baba->bindValue(':idBaba', $idBaba, PDO::PARAM_INT);
+                $sql_baba->execute();
+                $user_data_baba = $sql_baba->fetch(PDO::FETCH_ASSOC);
+             } else {
+                echo "Pai sei la";
+             }
         } else {
             // Caso não encontre, você precisa decidir o que fazer, talvez exibir uma mensagem de erro ou redirecionar
             echo "Baba não encontrada para o usuário logado.";
@@ -28,7 +40,6 @@ $idUsuario = $_SESSION['idUsuario'];
         catch (PDOException $e) {
             die("Erro ao processar dados: " . $e->getMessage());
         }
-        
 ?>
 
 <!DOCTYPE html>
@@ -44,9 +55,7 @@ $idUsuario = $_SESSION['idUsuario'];
         <!-- Início Navbar -->
         <nav class="navbar">
             <div class="navbar-content">
-                <div class="bars">
-                    <i class="fa-solid fa-bars" style="color: #000000;"></i>
-                </div>
+
                 <img src="../imgIndex/Babababypng.png" alt="Logo BabáBaby" class="logo-img">
             </div>
         </nav>
