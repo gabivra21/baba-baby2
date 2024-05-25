@@ -1,7 +1,8 @@
 <?php
 
 require "C:\\xampp\\htdocs\\baba-baby2\conn.php";
-session_start();
+//session_start();
+
 
 $querySQL = "SELECT u.idUsuario, u.nome, u.cpf, u.dtaNascimento, u.email, u.telefone, u.cidade, CASE WHEN b.pk_idUsuario IS NOT NULL AND p.pk_idUsuario IS NOT NULL THEN 'Pai e Baba' WHEN b.pk_idUsuario IS NOT NULL THEN 'Baba' WHEN p.pk_idUsuario IS NOT NULL THEN 'Pai' ELSE 'Nenhum' END AS tipo_usuario FROM usuario u LEFT JOIN baba b ON u.idUsuario = b.pk_idUsuario LEFT JOIN pais p ON u.idUsuario = p.pk_idUsuario;";
 $queryPreparada = $pdo->prepare($querySQL);
