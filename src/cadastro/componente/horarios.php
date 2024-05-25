@@ -18,7 +18,7 @@ $turnos = $queryPreparada->fetchAll();
 <div>
     <label for="horario">Disponibilidade de Horário:</label>
     <?php foreach ($turnos as $turno): ?>
-        <div id='<?= $turno['idDia']; ?>'>
+        <div id='<?= $turno['idTurno']; ?>'>
             <span for=""><?= $turno['nome']; ?></span>
             <input type="checkbox" name="turno[]" value="<?= $turno['idTurno']; ?>" />
         </div>

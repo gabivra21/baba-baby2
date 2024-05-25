@@ -1,6 +1,6 @@
 <?php
 include_once '../conn.php';
-//session_start();
+session_start();
 
 if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
     $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
@@ -69,6 +69,9 @@ $idUsuario = $_SESSION['idUsuario'];
             <div class="navbar-content">
 
                 <img src="../imgIndex/Babababypng.png" alt="Logo BabáBaby" class="logo-img">
+            </div>
+            <div class="navbar-ola">
+                <p>Olá, <?php echo $_SESSION['nome']; ?></p>
             </div>
         </nav>
         <!-- Fim Navbar -->

@@ -147,9 +147,9 @@ body {
 /*inicio dash*/
 .row .box {
     text-decoration: none;
-    width: 30%;
+    width: 48%;
     margin: 5px 1%;
-    height: 250px;
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -199,29 +199,36 @@ body {
 
 .top-list .title-content {
     float: left;
-    color:#000000 ;
+    color: #000000;
     padding: 10px 16px;
-    font-size: 17px;
+    font-size: 20px;
 }
 
 .top-list .top-list-right {
     padding: 10px 5px 5px 0;
     float: right;
+    
 }
 
-.table-list{
+.table-list {
     margin-top: 15px;
     width: 100%;
 }
 
-.table-list .list-head .list-head-content{
-    background-color:#EFCFAA;
+.table-list .list-head .list-head-content {
+    background-color: #EFCFAA;
     padding: 10px;
 }
 
-.table-list .list-body .list-body-content{
-    background-color:#ffffff;
+.list-body-content {
+    text-align: center; /* Centraliza o texto horizontalmente */
+}
+
+.table-list .list-body .list-body-content {
+    background-color: #ffffff;
     padding: 8px;
+    vertical-align: middle;
+    
 }
 /*fim historico*/
 
@@ -481,4 +488,153 @@ body {
 .modal2-content p {
     text-align: center;
     margin: 10px 0;
+}
+
+.botao-adddisp {
+    background-color: #29c0c3;
+    color: #ffffff;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all .3s ease;
+}
+
+.botao-adddisp:hover {
+    background-color: #0c7f8a;
+    color: #ffffff;
+}
+
+.botao-excdisp {
+    background-color: #91300a;
+    color: #ffffff;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all .3s ease;
+}
+
+.botao-excdisp:hover {
+    background-color: #440a0a;
+    color: #ffffff;
+}
+
+td.acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Botão excluir */
+.botao-excluirdispo {
+    background-color: #b40b0b;
+    color: #ffffff;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all .3s ease;
+}
+
+.botao-excluirdispo:hover {
+    background-color: #440a0a;
+    color: #ffffff;
+}
+
+/* Wrapper */
+.wrapper {
+    background-color: #F5D7BC;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+.cabecalho h1 {
+    color: #000;
+    text-align: center;
+}
+
+/* Form Container */
+.formulario {
+    background-color: #f7e3d1;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.caixa {
+    margin-bottom: 20px;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center; /* Adiciona centralização horizontal */
+}
+
+.checkbox input[type="checkbox"] {
+    margin-right: 10px; /* Ajuste conforme necessário */
+}
+
+.checkbox label {
+    margin-bottom: 0; /* Remove a margem inferior para melhorar a aparência */
+}
+
+.checkbox label.form-control {
+    margin-bottom: 15px; /* Ajuste o valor conforme necessário para o espaçamento desejado */
+    font-weight: bold;
+}
+
+.labelCheck {
+    color: #000; 
+    font-weight: normal;
+}
+
+.btnSalvar {
+    background-color: #00B2FF;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+.btnSalvar:hover {
+    background-color: #0091cc;
+}
+
+.botao-voltar {
+    background-color: #aca296;
+    color: #ffffff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all .3s ease;
+    margin-top: 10px; /* Adicione margem superior para separação */
+    display: inline-block; /* Garante que o botão esteja em linha com o formulário */
+}
+
+.botao-voltar:hover {
+    background-color: #838282;
 }

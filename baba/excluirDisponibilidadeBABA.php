@@ -23,10 +23,12 @@ try {
 
         // Passo 2: Obter disponibilidade do baba ordenada pelos dias da semana
         $sql_disponibilidade = $pdo->prepare("
-            SELECT disp.fk_idDia, disp.fk_idTurno
+            SELECT disp.idDisponibilidade, d.nome as dia, t.nome as turno
             FROM disponibilidade disp
+            JOIN dia d ON disp.fk_idDia = d.idDia
+            JOIN turno t ON disp.fk_idTurno = t.idTurno
             WHERE disp.fk_idBaba = :idBaba
-            ORDER BY FIELD(disp.fk_idDia, 1, 2, 3, 4, 5, 6, 7)
+            ORDER BY FIELD(d.nome, 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado', 'domingo')
         ");
         $sql_disponibilidade->bindValue(':idBaba', $idBaba, PDO::PARAM_INT);
         $sql_disponibilidade->execute();
@@ -35,33 +37,6 @@ try {
 } catch (PDOException $e) {
     die("Erro ao processar dados: " . $e->getMessage());
 }
-
-// Obter os nomes dos dias e turnos
-$sql_dias = $pdo->query("SELECT idDia, nome FROM dia ORDER BY FIELD(idDia, 1, 2, 3, 4, 5, 6, 7)");
-$dias = $sql_dias->fetchAll(PDO::FETCH_KEY_PAIR);
-
-$sql_turnos = $pdo->query("SELECT idTurno, nome FROM turno");
-$turnos = $sql_turnos->fetchAll(PDO::FETCH_KEY_PAIR);
-
-$listaConsolidada = array();
-foreach ($disponibilidade as $dispo) {
-    if (isset($dias[$dispo['fk_idDia']]) && isset($turnos[$dispo['fk_idTurno']])) {
-        $dia = $dias[$dispo['fk_idDia']];
-        $turno = $turnos[$dispo['fk_idTurno']];
-        
-        if (!isset($listaConsolidada[$dia])) {
-            $listaConsolidada[$dia] = array();
-        }
-        array_push($listaConsolidada[$dia], $turno);
-    } else {
-        echo "IDs de dia ou turno não encontrados no array: ";
-        print_r($dispo);
-    }
-}
-
-foreach ($listaConsolidada as $dia => $turnos) {
-    $listaConsolidada[$dia] = implode(" - ", $turnos);
-}
 ?>
 
 <!DOCTYPE html>
@@ -69,13 +44,12 @@ foreach ($listaConsolidada as $dia => $turnos) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Baba</title>
+    <title>Excluir Disponibilidade</title>
     <link rel="shortcut icon" type="imagex/png" href="../imgIndex/bbbyynew.ico">
     <link rel="stylesheet" href="menuBaba.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <!-- Início Navbar -->
     <nav class="navbar">
         <div class="navbar-content">
             <div class="bars">
@@ -95,39 +69,41 @@ foreach ($listaConsolidada as $dia => $turnos) {
             <a href="servicosBaba.php" class="sidebar-nav"><i class="icon fa-solid fa-clock-rotate-left" style="color: #000000;"></i><span>Serviços</span></a>
             <a href="../login/sair.php" class="sidebar-nav"><i class="icon fa-solid fa-right-from-bracket" style="color: #e90c0c;"></i><span>Sair</span></a>
         </div>
-        <!-- Início do conteúdo do administrativo -->
+
         <div class="wrapper">
             <div class="row">
                 <div class="top-list">
-                    <span class="title-content">Sua disponibilidade cadastrada de horários</span>
+                    <span class="title-content">Remover disponibilidade</span>
                     <div class="top-list-right">
-                        <a href="editDisponibilidadeBaba.php">
-                            <button type="button" class="botao-adddisp">Adicionar Disponibilidade</button>
-                        </a>
-                        <a href="excluirDisponibilidadeBaba.php">
-                            <button type="button" class="botao-excdisp">Remover Disponibilidade</button>
+                        <a href="disponibilidade.php">
+                            <button type="button" class="botao-voltar">Voltar</button>
                         </a>
                     </div>
-                    
                 </div>
                 <table class="table-list">
                     <thead class="list-head">
                         <tr>
                             <th class="list-head-content">Dia da semana</th>
                             <th class="list-head-content">Turno</th>
+                            <th class="list-head-content">Ações</th>
                         </tr>
                     </thead>
                     <tbody class="list-body">
-                        <?php foreach ($listaConsolidada as $dia => $turnos): ?>
+                        <?php foreach ($disponibilidade as $dispo): ?>
                             <tr>
-                                <td class='list-body-content'><?php echo htmlspecialchars($dia, ENT_QUOTES, 'UTF-8'); ?></td>
-                                <td class='list-body-content'><?php echo htmlspecialchars($turnos, ENT_QUOTES, 'UTF-8'); ?></td>
+                                <td class='list-body-content'><?= htmlspecialchars($dispo['dia'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                <td class='list-body-content'><?= htmlspecialchars($dispo['turno'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                <td class='list-body-content acoes'>
+                                    <a href="excluirDisponibilidadeBaba2.php?idDisponibilidade=<?= $dispo['idDisponibilidade']; ?>" onclick="return confirm('Deseja realmente excluir esta disponibilidade?');">
+                                        <button type="button" class="botao-excluirdispo">Excluir</button>
+                                    </a>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
         </div>
-        <!-- Fim do conteúdo do administrativo -->
+    </div>
 </body>
 </html>
