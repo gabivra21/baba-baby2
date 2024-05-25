@@ -135,9 +135,11 @@
             </fieldset>
         </div>
         <input type="submit" name="cadastrar" value="Cadastrar">
-        <a href="/baba-baby2/">Cancelar</a>
+        <a href="/baba-baby2/" class="botaocancelar">Cancelar</a>
     </form>
     <script src="js/cadastrar.js"></script>
+
+
     
 </body>
 

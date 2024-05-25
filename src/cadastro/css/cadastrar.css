@@ -331,3 +331,24 @@ dialog button.btn-cancelar {
     display: none;
     color: red;
 }
+
+.botaocancelar {
+    display: inline-block;          /* Torna o elemento um bloco inline */
+    padding: 8px 12px;              /* Espaçamento interno para tornar o botão pequeno */
+    font-size: 14px;                /* Tamanho da fonte pequeno */
+    color: #000000;                    /* Cor do texto branco */
+    background-color: #d9534f;      /* Cor de fundo vermelho (perigo/alerta) */
+    border: none;                   /* Remove qualquer borda padrão */
+    border-radius: 5px;             /* Bordas arredondadas */
+    text-decoration: none;          /* Remove a sublinhado padrão dos links */
+    cursor: pointer;                /* Cursor de mãozinha ao passar sobre o botão */
+    
+}
+
+.botaocancelar:hover {
+    background-color: #c9302c;      /* Cor de fundo mais escura ao passar o mouse */
+}
+
+.botaocancelar:active {
+    background-color: #ac2925;      /* Cor de fundo ainda mais escura ao clicar */
+}
