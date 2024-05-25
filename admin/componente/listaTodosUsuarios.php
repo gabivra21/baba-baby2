@@ -11,6 +11,11 @@ $todosUsuarios = $queryPreparada->fetchAll();
 ?>
 
 <?php foreach ($todosUsuarios as $users): ?>
+    <?php
+        if ($users["tipo_usuario"] == "Nenhum") {
+            continue;
+        }
+    ?>
     <tr>
         <td class="list-body-content"><?= $users['idUsuario']; ?></td>
         <td class="list-body-content"><?= $users['nome']; ?></td>
