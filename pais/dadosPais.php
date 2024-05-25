@@ -19,6 +19,18 @@ $idUsuario = $_SESSION['idUsuario'];
     
        if ($result) {
          $idPais = $result['idPais'];
+         $sql_user = $pdo->prepare("SELECT * FROM usuario WHERE idUsuario = :idUsuario");
+         $sql_user->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
+         $sql_user->execute();
+         $user_data = $sql_user->fetch(PDO::FETCH_ASSOC);
+         if($user_data) {
+            $sql_pai = $pdo->prepare("SELECT qtdeCrianca, descricao FROM pais WHERE idPais = :idPais");
+            $sql_pai->bindValue(':idPais', $idPais, PDO::PARAM_INT);
+            $sql_pai->execute();
+            $user_data_pai = $sql_pai->fetch(PDO::FETCH_ASSOC);
+         } else {
+            echo "Pai sei la";
+         }
         } else {
           echo "Pai não encontrado para o usuário logado.";
           exit(); // Saia do script, já que não temos o idBaba
@@ -67,60 +79,52 @@ $idUsuario = $_SESSION['idUsuario'];
                     <div class="top-list">
                         <span class="title-content">Meus Dados</span>
                         <div class="top-list-right">
-                            <button type="button" onclick="window.location.href='editarBaba.php'" class="botao-editar">Editar Dados</button>
+                            <button type="button" onclick="window.location.href='editarPais.php'" class="botao-editar">Editar Dados</button>
                             <button type="button" class="botao-remover" id="openModalBtn">Apagar Conta</button>
                         </div>
     
                     </div>
                     <div class="content-adm">
+                    </div>
+                    <div class="content-adm">
                         <div class="view-det-adm">
                             <span class="view-adm-title">CPF: </span>
-                            <span class="view-adm-info">145.785.569-99 </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data['cpf']); ?></span>
                         </div>
 
                         <div class="view-det-adm">
                             <span class="view-adm-title">Nome: </span>
-                            <span class="view-adm-info">Julia Costa </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data['nome']), " ", htmlspecialchars($user_data['sobrenome']); ?></span>
                         </div>
 
                         <div class="view-det-adm">
                             <span class="view-adm-title">E-mail: </span>
-                            <span class="view-adm-info">juliacosta@hotmail.com </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data['email']); ?></span>
                         </div>
                         
                         <div class="view-det-adm">
-                            <span class="view-adm-title">Data de Nascimento </span>
-                            <span class="view-adm-info">2005 </span>
+                            <span class="view-adm-title">Data de Nascimento: </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data['dtaNascimento']); ?></span>
                         </div>
                     
                         <div class="view-det-adm">
-                            <span class="view-adm-title">Babá desde: </span>
-                            <span class="view-adm-info">2005 </span>
+                            <span class="view-adm-title">Telefone: </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data['telefone']); ?></span>
+                        </div>
+                        
+                        <div class="view-det-adm">
+                            <span class="view-adm-title">CEP: </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data['cidade']); ?></span>
+                        </div>
+
+                        <div class="view-det-adm">
+                            <span class="view-adm-title">Quantidade de crianças: </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data_pai['qtdeCrianca']); ?></span>
                         </div>
 
                         <div class="view-det-adm">
                             <span class="view-adm-title">Sobre: </span>
-                            <span class="view-adm-info">Educada e legal </span>
-                        </div>
-
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">Faixa etária: </span>
-                            <span class="view-adm-info">bebe </span>
-                        </div>
-
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">Telefone: </span>
-                            <span class="view-adm-info">(xx) xxxxx-xxxx </span>
-                        </div>
-                        
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">CEP </span>
-                            <span class="view-adm-info">xxxxx-xxx </span>
-                        </div>
-
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">Valor Hora: </span>
-                            <span class="view-adm-info">55 </span>
+                            <span class="view-adm-info"><?php echo htmlspecialchars($user_data_pai['descricao']); ?></span>
                         </div>
                     </div>
                 </div>

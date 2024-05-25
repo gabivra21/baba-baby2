@@ -336,6 +336,25 @@
     transition: 0.3s ease;
 }
 
+.content .wrapper{
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+} 
+
+.content .row {
+    background-color: #cdcdcd;
+    border-radius: 6px;
+    
+}
+
+.wrapper .row{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    flex-wrap: wrap;
+}
+
 .row .box {
     text-decoration: none;
     width: 30%;
