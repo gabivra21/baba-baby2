@@ -1,6 +1,6 @@
 <?php
 include_once '../conn.php';
-session_start();
+//session_start();
 
 if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
     $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
@@ -83,57 +83,7 @@ $idUsuario = $_SESSION['idUsuario'];
                         </div>
     
                     </div>
-                    <div class="content-adm">
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">CPF: </span>
-                            <span class="view-adm-info">145.785.569-99 </span>
-                        </div>
-
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">Nome: </span>
-                            <span class="view-adm-info">Julia Costa </span>
-                        </div>
-
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">E-mail: </span>
-                            <span class="view-adm-info">juliacosta@hotmail.com </span>
-                        </div>
-                        
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">Data de Nascimento </span>
-                            <span class="view-adm-info">2005 </span>
-                        </div>
-                    
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">Babá desde: </span>
-                            <span class="view-adm-info">2005 </span>
-                        </div>
-
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">Sobre: </span>
-                            <span class="view-adm-info">Educada e legal </span>
-                        </div>
-
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">Faixa etária: </span>
-                            <span class="view-adm-info">bebe </span>
-                        </div>
-
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">Telefone: </span>
-                            <span class="view-adm-info">(xx) xxxxx-xxxx </span>
-                        </div>
-                        
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">CEP </span>
-                            <span class="view-adm-info">xxxxx-xxx </span>
-                        </div>
-
-                        <div class="view-det-adm">
-                            <span class="view-adm-title">Valor Hora: </span>
-                            <span class="view-adm-info">55 </span>
-                        </div>
-                    </div>
+                    <?php require "componente/informacoesBaba.php"; ?>
                 </div>
             </div>    
             <!-- Fim do conteúdo do administrativo -->
