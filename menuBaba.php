@@ -6,8 +6,10 @@ session_start();
 if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
     $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
     header("Location: index.php");
-    exit();
+   exit();
 }
+
+$idUsuario = $_SESSION['idUsuario']; // Usuário logado
 ?>
 
 <!DOCTYPE html>

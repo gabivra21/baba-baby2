@@ -254,10 +254,31 @@ body {
     cursor: pointer;
     font-size: 15px;
     transition: all .3s ease;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .botao-editar:hover {
     background-color: #4011c0;
+    color: #ffffff;
+}
+
+.botao-apagada {
+    background-color: #d894d4;
+    color: #ffffff;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all .3s ease;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-decoration: none
+}
+
+.botao-apagada:hover {
+    background-color: #d97dd3;
     color: #ffffff;
 }
 
@@ -337,4 +358,94 @@ body {
 .botao-remover:hover {
     background-color: #82160a;
     color: #ffffff;
+}
+
+.preencher {
+    width: 400px;
+    height: 30px;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 10px; /* Borda arredondada */
+    background-color: #f0f0f0; /* Coloração de fundo cinza-claro */
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+.preencher:focus {
+    border-color: #000000;
+    box-shadow: 0 0 8px rgba(20, 20, 21, 0.6);
+    outline: none;
+}
+  
+.preencher::placeholder {
+    color: #aaa;
+}
+  
+.preencher:invalid {
+    border-color: #e74c3c;
+}
+  
+.preencher:valid {
+    border-color: #000000;
+}
+
+/* Estilos para o modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Ficar fixo na tela */
+    z-index: 1; /* Ficar na frente */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilitar rolagem se necessário */
+    background-color: rgb(0, 0, 0); /* Fundo preto */
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo preto com opacidade */
+}
+
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #888;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 15% auto;
+    position: relative;
+}
+
+.modal-content p {
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Estilos para o botão de fechar */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.botoes {
+    justify-content: center;
+}
+
+.apagada {
+    text-align: center;
+    justify-content: center;
+    font-size: 50px;
+    margin-top: 50px;
+    color: #EFCFAA;
 }
