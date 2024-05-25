@@ -1,7 +1,7 @@
 <?php
 
 require "C:\\xampp\\htdocs\\baba-baby2\\conn.php";
-session_start();
+//session_start();
 
 $querySQL = "SELECT b.idBaba , u.nome, u.cpf, u.dtaNascimento, u.email, u.telefone, u.cidade from baba b inner join usuario u on b.pk_idUsuario = u.idUsuario where b.estado = 0;";
 $queryPreparada = $pdo->prepare($querySQL);
