@@ -88,12 +88,12 @@
                 <legend>Dados Adicionais</legend>
                 <div>
                     <label for="qnt-crianca">Quantidade de criança(s)</label>
-                    <input type="text" placeholder="1" name="qtdeCrianca" pattern="[0-9]+"
+                    <input type="text" placeholder="Ex.: 1" name="qtdeCrianca" pattern="[0-9]+"
                         title="Insira apenas números." />
                 </div>
                 <div>
                     <label for="descricao-familia">Fale sobre família</label>
-                    <input type="text" placeholder="Somos descontraídos e adoramos jogos" name="descricao"
+                    <input type="text" placeholder="Ex.: Somos descontraídos e adoramos jogos" name="descricao"
                         title="Detalhe um pouco sobre como é sua família." />
                 </div>
                 <div>
@@ -106,7 +106,7 @@
                 <div>
                     <label for="temp-exp">Trabalho como Baba desde </label>
                     <input type="text" name="tempoExp" pattern="[0-9]{4}"
-                        title="Por favor, insira um ano válido (quatro dígitos)" placeholder="2005" />
+                        title="Por favor, insira um ano válido (quatro dígitos)" placeholder="Ex.: 2005" />
                 </div>
                 <div>
                     <label for="referencia">Referência (contato)</label>
@@ -130,7 +130,7 @@
                 </div>
                 <div>
                     <label for="valor">Valor</label>
-                    <input type="text" placeholder="150,00" name="valor" pattern="\d+(\.\d+)?"
+                    <input type="text" placeholder="Ex.: 150.00" name="valor" pattern="\d+(\.\d+)?"
                         title="Insira um valor em reais (com ponto ao invés de vírgula!)" />
                 </div>
                 <?php require "componente/diasSemana.php"; ?>
