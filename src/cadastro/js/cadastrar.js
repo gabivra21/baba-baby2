@@ -86,34 +86,3 @@ const spans = document.querySelectorAll('.span-required');
             spans[index].style.display = "none";
 
         }
-
-        async function verificarCPFExistente(cpf) {
-            const response = await fetch('verificar_cpf.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ cpf: cpf })
-            });
-            const data = await response.json();
-            return data.exists;
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const form = document.getElementById('formUsuario');
-            form.addEventListener('submit', async (event) => {
-                event.preventDefault();
-                const cpfInput = document.getElementById('cpf');
-                const cpf = cpfInput.value;
-
-                const cpfExistente = await verificarCPFExistente(cpf);
-
-                if (cpfExistente) {
-                    alert('CPF já cadastrado.');
-                } else {
-                    alert('CPF não cadastrado. Formulário pode ser submetido.');
-                    // form.submit(); // Descomente esta linha para submeter o formulário
-                }
-            });
-        });
-          

@@ -1,6 +1,5 @@
 <?php
-include_once '../conn.php';
-session_start();
+include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
 
 if ((!isset($_SESSION['idUsuario'])) && (!isset($_SESSION['nome']))) {
     $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
@@ -18,7 +17,20 @@ try {
     $result = $sql_check->fetch(PDO::FETCH_ASSOC);
 
     if ($result) {
-        $idPais = $result['idPais']; // Armazenar o idBaba, se existir
+        $idPais = $result['idPais'];
+
+        $sql_check_proposta = $pdo->prepare("SELECT * FROM proposta WHERE fk_idPais = :idPais");
+        $sql_check_proposta->bindValue(':idPais', $idPais, PDO::PARAM_INT);
+        $sql_check_proposta->execute();
+        $result_proposta = $sql_check_proposta->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($result_proposta) {
+            // Se houver entradas na tabela disponibilidade referentes a este idBaba, exclua-as primeiro
+            $sql_delete_proposta = $pdo->prepare("DELETE FROM proposta WHERE fk_idPais = :idPais");
+            $sql_delete_proposta->bindValue(':idPais', $idPais, PDO::PARAM_INT);
+            $sql_delete_proposta->execute();
+        }
+
 
         // Executar o DELETE se o idPais existir
         $sql_delete = $pdo->prepare("DELETE FROM pais WHERE idPais = :idPais AND pk_idUsuario = :idUsuario");

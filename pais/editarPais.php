@@ -1,6 +1,5 @@
 <?php
 include_once '../conn.php';
-session_start();
 
 if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
     $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
@@ -46,15 +45,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $telefone = $_POST['telefone'];
     $cep = $_POST['cep'];
     $ende = $_POST['endereco'];
+    $senha = $_POST['senha'];
     $qtdeCrianca = $_POST['qtdeCrianca'];
     $descricao = $_POST['sobre'];
 
     try {
-        $sql_update_user = $pdo->prepare("UPDATE usuario SET email = :email, telefone = :telefone, cidade = :cep, endereco = :endereco WHERE idUsuario = :idUsuario");
+        $sql_update_user = $pdo->prepare("UPDATE usuario SET email = :email, telefone = :telefone, cidade = :cep, endereco = :endereco, senha = :senha WHERE idUsuario = :idUsuario");
         $sql_update_user->bindValue(':email', $email, PDO::PARAM_STR);
         $sql_update_user->bindValue(':telefone', $telefone, PDO::PARAM_STR);
         $sql_update_user->bindValue(':cep', $cep, PDO::PARAM_STR);
         $sql_update_user->bindValue(':endereco', $ende, PDO::PARAM_STR);
+        $sql_update_user->bindValue(':senha', $senha, PDO::PARAM_STR);
         $sql_update_user->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
         $sql_update_user->execute();
 
@@ -182,6 +183,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <span class="view-adm-title">Sobre: </span>
                             <input class="preencher" type="text" name="sobre" value="<?php echo htmlspecialchars($user_data_pai['descricao']); ?>"
                             title="Descreva um pouco sobre você e suas experiências." />
+                        </div>
+
+                        <div class="view-det-adm">
+                            <span class="view-adm-title">Senha: </span>
+                            <input class="preencher" type="text" name="senha" value="<?php echo htmlspecialchars($user_data['senha']); ?>"
+                            title="Sua senha." />
                         </div>
                     </form>
                 </div>

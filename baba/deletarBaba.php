@@ -1,6 +1,5 @@
 <?php
-include_once '../conn.php';
-session_start();
+include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
 
 if ((!isset($_SESSION['idUsuario'])) && (!isset($_SESSION['nome']))) {
     $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
@@ -19,6 +18,18 @@ try {
 
     if ($result) {
         $idBaba = $result['idBaba']; // Armazenar o idBaba, se existir
+
+        $sql_check_proposta = $pdo->prepare("SELECT * FROM proposta WHERE fk_idBaba = :idBaba");
+        $sql_check_proposta->bindValue(':idBaba', $idBaba, PDO::PARAM_INT);
+        $sql_check_proposta->execute();
+        $result_proposta = $sql_check_proposta->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($result_proposta) {
+            $sql_delete_proposta = $pdo->prepare("DELETE FROM proposta WHERE fk_idBaba = :idBaba");
+            $sql_delete_proposta->bindValue(':idBaba', $idBaba, PDO::PARAM_INT);
+            $sql_delete_proposta->execute();
+        }
+
         $sql_check_disponibilidade = $pdo->prepare("SELECT * FROM disponibilidade WHERE fk_idBaba = :idBaba");
         $sql_check_disponibilidade->bindValue(':idBaba', $idBaba, PDO::PARAM_INT);
         $sql_check_disponibilidade->execute();

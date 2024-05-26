@@ -1,8 +1,8 @@
 <div class="content">
     <div class="sidebar">
-        <a href="menuBaba.php" class="sidebar-nav active"><i class="icon fa-solid
+        <a href="../menuBaba.php" class="sidebar-nav active"><i class="icon fa-solid
                     fa-house" style="color: #000000;"></i><span>Início</span></a>
-        <a href="login/sair.php" class="sidebar-nav"><i class="icon fa-solid 
+        <a href="..//login/sair.php" class="sidebar-nav"><i class="icon fa-solid 
                     fa-right-from-bracket" style="color: #e90c0c;"></i><span>Sair</span></a>
     </div>
 

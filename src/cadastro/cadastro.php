@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php error_reporting(E_ALL & ~E_WARNING); ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +52,7 @@
                 <label>
                     <strong>CPF:</strong>
                     <input type="text" id="cpf" name="cpf" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}"
-                        title="Formato: XXX.XXX.XXX-XX" required oninput="verificarCPFExistente()" />
+                        title="Formato: XXX.XXX.XXX-XX" required />
                 </label>
                 <label>
                     <strong>Telefone:</strong>
@@ -136,11 +138,9 @@
             </fieldset>
         </div>
         <input type="submit" name="cadastrar" value="Cadastrar">
-        <a href="/baba-baby2/" class="botaocancelar">Cancelar</a>
+        <a href="/baba-baby2/">Cancelar</a>
     </form>
     <script src="js/cadastrar.js"></script>
-
-
     
 </body>
 

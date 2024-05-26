@@ -1,6 +1,5 @@
 <?php
-include_once '../conn.php';
-session_start();
+include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
 
 if ((!isset($_SESSION['idUsuario'])) && (!isset($_SESSION['nome']))) {
     $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";

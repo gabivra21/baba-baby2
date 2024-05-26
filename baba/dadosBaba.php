@@ -1,6 +1,5 @@
 <?php
-include_once '../conn.php';
-session_start();
+include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
 
 if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
     $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
@@ -90,7 +89,7 @@ $idUsuario = $_SESSION['idUsuario'];
                     fa-clock-rotate-left" style="color: #000000;"></i><span>Serviços</span></a>        
                             
 
-                <a href="../index.php" class="sidebar-nav"><i class="icon fa-solid 
+                <a href="../login/sair.php" class="sidebar-nav"><i class="icon fa-solid 
                     fa-right-from-bracket" style="color: #e90c0c;"></i></i><span>Sair</span></a>        
                 
             </div>

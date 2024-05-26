@@ -1,6 +1,5 @@
 <?php
-include_once '../conn.php';
-session_start();
+include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
 
 if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
     $_SESSION['msgErro'] = "Necessário realizar o login para acessar a página!";
@@ -127,6 +126,11 @@ $idUsuario = $_SESSION['idUsuario'];
                         <div class="view-det-adm">
                             <span class="view-adm-title">Sobre: </span>
                             <span class="view-adm-info"><?php echo htmlspecialchars($user_data_pai['descricao']); ?></span>
+                        </div>
+
+                        <div class="view-det-adm">
+                        <span class="view-adm-title">Foto: </span>
+                        <span class="view-adm-info"><img src="<?php echo htmlspecialchars($user_data['foto']); ?>" width="150" height="150"></span>
                         </div>
                     </div>
                 </div>

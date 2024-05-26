@@ -1,6 +1,6 @@
 <?php
 
-include_once 'C:\\xampp\\htdocs\\baba-baby2\\conn.php';
+include_once 'C:\xampp\htdocs\baba-baby2\conn.php';
 //session_start();
 
 if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
