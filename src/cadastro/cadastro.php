@@ -120,7 +120,7 @@
                         title="Descreva um pouco sobre você e suas experiências." />
                 </div>
                 <div>
-                    <label for="preferencias-baba">Preferência em cuidade de</label>
+                    <label for="preferencias-baba">Preferência em cuidado de</label>
                     <select name="fk_idFxEtaria">
                         <option value="1">Bebê</option>
                         <option value="2">Criança</option>
