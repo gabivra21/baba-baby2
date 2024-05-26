@@ -80,6 +80,7 @@ try {
                         </a>
                     </div>
                 </div>
+
                 <table class="table-list">
                     <thead class="list-head">
                         <tr>
@@ -105,5 +106,20 @@ try {
             </div>
         </div>
     </div>
+
+    <?php if (isset($_SESSION['msgSucesso'])): ?>
+        <script>
+            alert("<?php echo $_SESSION['msgSucesso']; ?>");
+            <?php unset($_SESSION['msgSucesso']); ?>
+        </script>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['msgErro'])): ?>
+        <script>
+            alert("<?php echo $_SESSION['msgErro']; ?>");
+            <?php unset($_SESSION['msgErro']); ?>
+        </script>
+    <?php endif; ?>
+
 </body>
 </html>

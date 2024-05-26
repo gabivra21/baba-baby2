@@ -64,7 +64,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql_update_pai->bindValue(':idPais', $idPais, PDO::PARAM_INT);
         $sql_update_pai->execute();
 
-        echo "Dados atualizados com sucesso!";
+        echo "
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                showModal2();
+            });
+    
+            function showModal2() {
+                var modal = document.createElement('div');
+                modal.id = 'modal2';
+                modal.style.display = 'block';
+                modal.style.position = 'fixed';
+                modal.style.zIndex = '1';
+                modal.style.left = '0';
+                modal.style.top = '0';
+                modal.style.width = '100%';
+                modal.style.height = '100%';
+                modal.style.overflow = 'auto';
+                modal.style.backgroundColor = 'rgba(0,0,0,0.4)';
+                modal.innerHTML = `
+                    <div style='background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 300px; text-align: center;'>
+                        <p>Dados Atualizados!</p>
+                        <button type='button' onclick='redirect()' style='background-color: #4038db; color: #ffffff; padding: 8px 8px; border: none; border-radius: 5px; cursor: pointer; font-size: 15px; transition: all .3s ease; margin-top: 15px; margin-bottom: 10px;'>OK</button>
+                    </div>`;
+                document.body.appendChild(modal);
+            }
+    
+            function redirect() {
+                window.location.href = 'dadosPais.php';
+            }
+        </script>";
     } catch (PDOException $e) {
         die("Erro ao atualizar dados: " . $e->getMessage());
     }

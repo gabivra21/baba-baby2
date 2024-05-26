@@ -55,11 +55,6 @@ $dadosBaba = $queryPreparada->fetch();
     </div>
 
     <div class="view-det-adm">
-        <span class="view-adm-title">Faixa etária: </span>
-        <span class="view-adm-info"><?=$dadosBaba['fxEtaria']?></span>
-    </div>
-
-    <div class="view-det-adm">
         <span class="view-adm-title">Telefone: </span>
         <span class="view-adm-info"><?=$dadosBaba['telefone']?></span>
     </div>
