@@ -34,7 +34,7 @@ $idUsuario = $_SESSION['idUsuario']; // Usuário logado
                 <p>Olá, <?php echo $_SESSION['nome']; ?></p>
             </div>
         </nav>
-        <?php require 'C:\xampp\htdocs\baba-baby2\baba\componente\validarAprovacao.php' ?>
+        <?php require 'C:\\xampp\\htdocs\\baba-baby2\\baba\\componente\\validarAprovacao.php' ?>
         <script src="C:\xampp\htdocs\baba-baby2\baba\componente\babaNaoAprovada.js"></script>
     </body>
 </html>

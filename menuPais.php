@@ -65,7 +65,7 @@ if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
                         u.nome, u.cidade
                         FROM baba AS b
                         LEFT JOIN usuario AS u ON b.pk_idUsuario = u.idUsuario
-                        WHERE u.nome LIKE :pesquisa OR u.cidade LIKE :pesquisa";
+                        WHERE u.nome LIKE :pesquisa OR u.cidade LIKE :pesquisa and b.estado = 1";
 
                     $queryPreparada = $pdo->prepare($querySQL);
                     $queryPreparada->bindParam(':pesquisa', $param, PDO::PARAM_STR);
@@ -75,7 +75,7 @@ if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
                     $querySQL = "SELECT DISTINCT b.idBaba, b.tempoExp, b.sobre, b.valor, b.pk_idUsuario,
                         u.nome, u.cidade
                         FROM baba AS b
-                        LEFT JOIN usuario AS u ON b.pk_idUsuario = u.idUsuario";
+                        LEFT JOIN usuario AS u ON b.pk_idUsuario = u.idUsuario and b.estado = 1";
 
                     $queryPreparada = $pdo->prepare($querySQL);
                     $queryPreparada->execute();

@@ -1,10 +1,10 @@
 <?php
-include 'C:\\xampp\\htdocs\\baba-baby2\conn.php';
+include 'C:\\xampp\\htdocs\\baba-baby2\\conn.php';
 
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$id = isset($_GET['idBaba']) ? (int)$_GET['idBaba'] : 0;
 
 if ($id > 0) {
-    $stmt = $pdo->prepare('SELECT * FROM baba WHERE id = ?');
+    $stmt = $pdo->prepare('SELECT * FROM baba WHERE idBaba = ?');
     $stmt->execute([$id]);
     $babysitter = $stmt->fetch();
 
@@ -18,9 +18,9 @@ if ($id > 0) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $stmt = $pdo->prepare('UPDATE baba SET estado = 1 WHERE id = ?');
+    $stmt = $pdo->prepare('UPDATE baba SET estado = 1 WHERE idBaba = ?');
     $stmt->execute([$id]);
-    header('Location: verify.php?id=' . $id);
+    header('Location: pagVerificacao.php?idBaba=' . $id);
     exit;
 }
 
@@ -37,13 +37,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h1>Verificação de Baba</h1>
     <div class="babysitter-info">
-        <img src="<?= htmlspecialchars($babysitter['foto']) ?>" alt="Foto da Baba">
-        <h2><?= htmlspecialchars($babysitter['nome']) ?></h2>
-        <p>Email: <?= htmlspecialchars($babysitter['email']) ?></p>
-        <?php if ($babysitter['verified']): ?>
-            <p>Esta baba já foi verificada.</p>
+        <!-- Exibe a foto da babá -->
+        <img src="../baba/imagensDocumentoBaba/1716735682Captura de tela 2023-11-29 112649.png">
+        <!-- Exibe a descrição da babá -->
+        <p>Descrição: <?= htmlspecialchars($babysitter['sobre']) ?></p>
+        <!-- Exibe o tempo de experiência da babá -->
+        <p>Trabalha como babá desde: <?= htmlspecialchars($babysitter['tempoExp']) ?></p>
+        <!-- Verifica se a babá já foi verificada -->
+        <?php if ($babysitter['estado']): ?>
+            <p>Esta babá já foi verificada.</p>
         <?php else: ?>
-            <form action="verify.php?id=<?= $id ?>" method="post">
+            <!-- Formulário para submeter a verificação da babá -->
+            <form action="pagVerificacao.php?idBaba=<?= $id ?>" method="post">
                 <button type="submit">Aprovar</button>
             </form>
         <?php endif; ?>
