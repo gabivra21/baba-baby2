@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1>Verificação de Baba</h1>
     <div class="babysitter-info">
         <!-- Exibe a foto da babá -->
-        <img src="../baba/imagensDocumentoBaba/1716735682Captura de tela 2023-11-29 112649.png">
+        <img src="<?= htmlspecialchars($babysitter['foto_doc']) ?>" alt="Foto da Baba">">
         <!-- Exibe a descrição da babá -->
         <p>Descrição: <?= htmlspecialchars($babysitter['sobre']) ?></p>
         <!-- Exibe o tempo de experiência da babá -->
