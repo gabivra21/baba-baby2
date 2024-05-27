@@ -82,7 +82,7 @@ if ((!isset($_SESSION['idUsuario'])) AND (!isset($_SESSION['nome']))) {
                                 FROM proposta p
                                 LEFT JOIN baba ba ON p.fk_Bpk_idUsuario = ba.pk_idUsuario
                                 LEFT JOIN usuario u ON ba.pk_idUsuario = u.idUsuario
-                                WHERE p.fk_idPais = :idPais AND p.estado = 1 AND p.dataAceite IS NULL
+                                WHERE p.fk_idPais = :idPais AND p.estado = 1 AND p.dataAceite IS NOT NULL AND p.dataPronto IS NULL
                             ");
                             $sql_proposta->bindParam(':idPais', $idPais, PDO::PARAM_INT);
                             $sql_proposta->execute();
